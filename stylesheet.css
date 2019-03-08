@@ -42,7 +42,6 @@ h1 {
 	opacity: 0;
 }
 .tableRow {
-	background-image: url("exampleIcon.png");
 	background-size: 45px;
 	background-repeat: no-repeat;
 	background-position-y: center;

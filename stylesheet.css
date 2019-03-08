@@ -1,39 +1,82 @@
 * {
-    font-family: Arial;
-    font-size: 12pt;
-    color: black;
-    margin: 0;
+	color: white;
+	font-family: 'Nunito', sans-serif;
+	margin: 0;
 }
 
 body {
-    margin-top: 30px;
-    margin-left: 30px;
+	margin: 30px;
+	background-color: #292C30;
 }
 
 .bigBox {
-    background-color: lightgray;
-    box-shadow: 10px 10px 20px rgba(0,0,0,.1);
-    padding: 20px;
-    border-radius: 25px;
-    max-width: 500px;
-    margin-bottom: 20px;
-}
-
-.linkTitle {
-    display: block;
+	width: 100%;
+	max-width: 600px;
+	background: #2F3439;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+	text-align: left;
+	border-radius: 25px;
+	padding: 20px;
+	padding-bottom: 10px;
+	margin-top: 10px;
+	margin-bottom: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	border-style: solid;
+	border-color: rgba(255, 255, 255, 0.05);
+	border-width: 2px;
 }
 
 h1 {
-    margin-bottom: 10px;
+	font-size: 20pt;
+	font-weight: 600;
+	text-align: center;
+}
+
+.linkTitle {
+	margin-top: 14pt;
+	font-size: 13pt;
+	display: block;
+}
+
+.linkURL {
+	color: rgba(255, 255, 255, 0.4);
+	font-size: 0;
+	opacity: 0;
 }
 
 .tableRow {
-    background-image: url("exampleIcon.png");
-    background-size: 50px;
-    background-repeat: no-repeat;
-    background-position-y: center;
-    padding-left: 70px;
-    min-height: 50px;
-    vertical-align: middle;
-    margin-bottom: 10px;
+	background-image: url("exampleIcon.png");
+	background-size: 45px;
+	background-repeat: no-repeat;
+	background-position-y: center;
+	padding-left: 70px;
+	min-height: 50px;
+	vertical-align: middle;
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+
+/*Fancy Animation for rows of apps*/
+.tableRow:hover {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	min-height: 65px;
+	background-size: 60px;
+}
+.tableRow:hover .linkTitle {
+	margin-top: 0;
+	font-size: 20pt;
+}
+.tableRow:hover .linkURL {
+	font-size: 13pt;
+	opacity: 1;
+}
+
+.tableRow, .linkURL, .linkTitle {
+	transition: all 0.3s ease;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
 }

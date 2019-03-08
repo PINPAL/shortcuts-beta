@@ -23,7 +23,7 @@ for (i = 1; i < categories.length; i++) {
     var bigBox = document.createElement("div");
     bigBox.className = "bigBox";
 
-    for (j = 1; j < section.length/2; j+=2) {
+    for (j = 1; j < section.length-1; j+=2) {
         var rowContent = document.createElement("div");
         rowContent.className = "tableRow"
 

@@ -1,4 +1,3 @@
-var config = "#Section1;Example1 Website;https://www.example1.com;Example2 Website;https://www.example2.com;Example3 Website;https://www.example3.com#Section2;Example4 Website;https://www.example4.com"
 
 function loadFile(filename){
     if (window.XMLHttpRequest)
@@ -33,7 +32,7 @@ for (i = 1; i < categories.length; i++) {
 
         var linkURL = document.createElement("span");
         linkURL.className = "linkURL"
-        linkURL.innerText = section[j + 1]
+        linkURL.innerText = section[j + 1].replace(/^(https?:|)\/\/www\./,"");
 
         rowContent.appendChild(linkTitle)
         rowContent.appendChild(linkURL)

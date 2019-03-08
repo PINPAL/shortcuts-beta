@@ -1,0 +1,39 @@
+* {
+    font-family: Arial;
+    font-size: 12pt;
+    color: black;
+    margin: 0;
+}
+
+body {
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.bigBox {
+    background-color: lightgray;
+    box-shadow: 10px 10px 20px rgba(0,0,0,.1);
+    padding: 20px;
+    border-radius: 25px;
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+
+.linkTitle {
+    display: block;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+.tableRow {
+    background-image: url("exampleIcon.png");
+    background-size: 50px;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    padding-left: 70px;
+    min-height: 50px;
+    vertical-align: middle;
+    margin-bottom: 10px;
+}

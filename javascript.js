@@ -11,7 +11,7 @@ function loadFile(filename){
 
 var config = loadFile("config.txt").replace(/\r?\n|\r/g,"")
 
-var categories = config.split("#Section")
+var categories = config.split("#")
 for (i = 1; i < categories.length; i++) {
     section = categories[i].split(";");
     console.log(section);

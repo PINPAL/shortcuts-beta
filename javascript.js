@@ -24,15 +24,10 @@ for (i = 1; i < categories.length; i++) {
     bigBox.className = "bigBox";
 
     for (j = 1; j < section.length-1; j+=3) {
-<<<<<<< HEAD
         var a = document.createElement('a');
         a.href = section[j + 1];
         
         
-=======
-        var rowLink = document.createElement("a")
-        rowLink.href = section[j+1]
->>>>>>> 4e73812f00878741ccd4c65aa0f9ff1e27025b52
         var rowContent = document.createElement("div");
         rowContent.className = "tableRow";        
         rowContent.style.backgroundImage = "url('"+section[j+2]+"')"
@@ -47,15 +42,9 @@ for (i = 1; i < categories.length; i++) {
         
         rowContent.appendChild(linkTitle)
         rowContent.appendChild(linkURL)
-<<<<<<< HEAD
         
         a.appendChild(rowContent)
         bigBox.appendChild(a);
-=======
-
-        rowLink.appendChild(rowContent)
-        bigBox.appendChild(rowLink);
->>>>>>> 4e73812f00878741ccd4c65aa0f9ff1e27025b52
     }
 
     bigBox.appendChild(a);

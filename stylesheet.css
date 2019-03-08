@@ -59,6 +59,7 @@ h1 {
 	margin-bottom: 10px;
 	min-height: 65px;
 	background-size: 60px;
+	padding-left: 80px;
 }
 .tableRow:hover .linkTitle {
 	margin-top: 0;

@@ -33,7 +33,7 @@ for (i = 1; i < categories.length; i++) {
 
         var linkURL = document.createElement("span");
         linkURL.className = "linkURL"
-        linkURL.innerText = section[j+1];
+        linkURL.innerText = section[j+1].replace(/^(https?:|)\/\/www\./,"");
 
         rowContent.appendChild(linkTitle)
         rowContent.appendChild(linkURL)

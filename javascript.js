@@ -1,5 +1,16 @@
-var config = "#Section1;Example1 Website;example1.com;Example2 Website;example2.com;Example3 Website;example3.com#Section2;Example4 Website;example4.com"
-var lineBreak = document.createElement("br")
+var config = "#Section1;Example1 Website;https://www.example1.com;Example2 Website;https://www.example2.com;Example3 Website;https://www.example3.com#Section2;Example4 Website;https://www.example4.com"
+
+function loadFile(filename){
+    if (window.XMLHttpRequest)
+        {xhttp=new XMLHttpRequest();}
+    else // code for IE5 and IE6
+        {xhttp=new ActiveXObject("Microsoft.XMLHTTP");}
+    xhttp.open("GET",filename,false);
+    xhttp.send();
+    return xhttp.responseText;
+}
+
+var config = loadFile("config.txt").replace(/\r?\n|\r/g,"")
 
 var categories = config.split("#")
 for (i = 1; i < categories.length; i++) {

@@ -8,8 +8,14 @@ a {
 	text-decoration: none;
 }
 
+.column {
+    float: left;
+	width: 25%;
+	max-width: 25%;
+	overflow: hidden;
+}
+
 body {
-	margin: 30px;
 	background-color: #292C30;
 }
 h1 {
@@ -19,8 +25,7 @@ h1 {
 }
 
 .bigBox {
-	width: 100%;
-	max-width: 600px;
+	width: 85%;
 	background: #2F3439;
 	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
 	text-align: left;

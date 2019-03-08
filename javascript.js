@@ -14,11 +14,12 @@ var config = loadFile("config.txt").replace(/\r?\n|\r/g,"")
 var categories = config.split("#")
 for (i = 1; i < categories.length; i++) {
     section = categories[i].split(";");
-    console.log(section);
     
     var sectionHeader = document.createElement("h1");
-    sectionHeader.innerText = section[0]
-    document.getElementsByTagName("body")[0].appendChild(sectionHeader);
+    sectionHeader.innerText = section[0].replace(/\[.\]/,"")
+    var columnForSection = section[0]
+    columnForSection = columnForSection[columnForSection.search(/\[.\]/)+ 1];
+    document.getElementsByClassName("column")[columnForSection].appendChild(sectionHeader);
 
     var bigBox = document.createElement("div");
     bigBox.className = "bigBox";
@@ -48,5 +49,5 @@ for (i = 1; i < categories.length; i++) {
     }
 
     bigBox.appendChild(a);
-    document.getElementsByTagName("body")[0].appendChild(bigBox);
+    document.getElementsByClassName("column")[columnForSection].appendChild(bigBox);
 }

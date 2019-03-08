@@ -1,4 +1,4 @@
-#Section One;
+#Section One[0];
 Example1 Website;
 https://www.example1.com;
 https://pinpal.github.io/assets/shortcuts/shortcut-icons/reddit.png;
@@ -9,12 +9,34 @@ Example3 Website;
 https://www.example3.com;
 https://pinpal.github.io/assets/shortcuts/shortcut-icons/iplayer.png;
 
-#Another Category;
+#Another Category[1];
 Example4 Website;
 https://www.example4.com;
 https://pinpal.github.io/assets/shortcuts/shortcut-icons/ebay.png;
 
-#Stuff;
+#More Random Trash[2];
+Example4 Website;
+https://www.example4.com;
+https://pinpal.github.io/assets/shortcuts/shortcut-icons/ebay.png;
+Example2 Website;
+https://www.example2.com;
+https://pinpal.github.io/assets/shortcuts/shortcut-icons/inbox.png;
+Example3 Website;
+https://www.example3.com;
+https://pinpal.github.io/assets/shortcuts/shortcut-icons/iplayer.png;
+
+#Stuff[3];
 Jeff's Homepage;
 https://www.google.com;
 https://pinpal.github.io/assets/shortcuts/shortcut-icons/steam.png;
+
+#Other Crap[3];
+Example4 Website;
+https://www.example4.com;
+https://pinpal.github.io/assets/shortcuts/shortcut-icons/ebay.png;
+Example2 Website;
+https://www.example2.com;
+https://pinpal.github.io/assets/shortcuts/shortcut-icons/inbox.png;
+Example3 Website;
+https://www.example3.com;
+https://pinpal.github.io/assets/shortcuts/shortcut-icons/iplayer.png;

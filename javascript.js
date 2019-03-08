@@ -11,18 +11,19 @@ function loadFile(filename){
 
 var config = loadFile("config.txt").replace(/\r?\n|\r/g,"")
 
-var categories = config.split("#")
+var categories = config.split("#Section")
 for (i = 1; i < categories.length; i++) {
     section = categories[i].split(";");
-
+    console.log(section);
+    
     var sectionHeader = document.createElement("h1");
-    sectionHeader.innerText = section[0];
+    sectionHeader.innerText = "Section "+ i;
     document.getElementsByTagName("body")[0].appendChild(sectionHeader);
 
     var bigBox = document.createElement("div");
     bigBox.className = "bigBox";
 
-    for (j = 1; j < section.length/2; j++) {
+    for (j = 1; j < section.length/2; j+=2) {
         var rowContent = document.createElement("div");
         rowContent.className = "tableRow"
 
@@ -32,7 +33,7 @@ for (i = 1; i < categories.length; i++) {
 
         var linkURL = document.createElement("span");
         linkURL.className = "linkURL"
-        linkURL.innerText = section[j + 1].replace(/^(https?:|)\/\/www\./,"");
+        linkURL.innerText = section[j+1];
 
         rowContent.appendChild(linkTitle)
         rowContent.appendChild(linkURL)

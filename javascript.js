@@ -23,9 +23,10 @@ for (i = 1; i < categories.length; i++) {
     var bigBox = document.createElement("div");
     bigBox.className = "bigBox";
 
-    for (j = 1; j < section.length-1; j+=2) {
+    for (j = 1; j < section.length-1; j+=3) {
         var rowContent = document.createElement("div");
-        rowContent.className = "tableRow"
+        rowContent.className = "tableRow";        
+        rowContent.style.backgroundImage = "url('"+section[j+2]+"')"
 
         var linkTitle = document.createElement("span");
         linkTitle.className = "linkTitle";

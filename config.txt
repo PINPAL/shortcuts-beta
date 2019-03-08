@@ -16,5 +16,5 @@ https://pinpal.github.io/assets/shortcuts/shortcut-icons/ebay.png;
 
 #Stuff;
 Jeff's Homepage;
-https://www.mynamejeff.com;
+https://www.google.com;
 https://pinpal.github.io/assets/shortcuts/shortcut-icons/steam.png;

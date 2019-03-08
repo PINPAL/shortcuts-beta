@@ -24,24 +24,29 @@ for (i = 1; i < categories.length; i++) {
     bigBox.className = "bigBox";
 
     for (j = 1; j < section.length-1; j+=3) {
+        var a = document.createElement('a');
+        a.href = section[j + 1];
+        
+        
         var rowContent = document.createElement("div");
         rowContent.className = "tableRow";        
         rowContent.style.backgroundImage = "url('"+section[j+2]+"')"
-
+        
         var linkTitle = document.createElement("span");
         linkTitle.className = "linkTitle";
         linkTitle.innerText = section[j]
-
+        
         var linkURL = document.createElement("span");
         linkURL.className = "linkURL"
-        linkURL.innerText = section[j+1].replace(/^(https?:|)\/\/www\./,"");
-
+        linkURL.innerText = section[j + 1].replace(/^(https?:|)\/\/www\./, "")
+        
         rowContent.appendChild(linkTitle)
         rowContent.appendChild(linkURL)
-
-        bigBox.appendChild(rowContent);
+        
+        a.appendChild(rowContent)
+        bigBox.appendChild(a);
     }
 
-    bigBox.appendChild(rowContent);
+    bigBox.appendChild(a);
     document.getElementsByTagName("body")[0].appendChild(bigBox);
 }

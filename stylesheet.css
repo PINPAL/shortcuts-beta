@@ -76,3 +76,7 @@ h1 {
 	-o-transition: all 0.3s ease;
 	-ms-transition: all 0.3s ease;
 }
+
+a{
+	text-decoration: none;
+}

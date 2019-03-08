@@ -35,11 +35,17 @@ h1 {
 	margin-top: 14pt;
 	font-size: 13pt;
 	display: block;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	max-height: 25px;
 }
 .linkURL {
 	color: rgba(255, 255, 255, 0.4);
 	font-size: 0;
 	opacity: 0;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	max-height: 15px;
 }
 .tableRow {
 	background-image: url("exampleIcon.png");
@@ -64,6 +70,7 @@ h1 {
 .tableRow:hover .linkTitle {
 	margin-top: 0;
 	font-size: 20pt;
+	padding-bottom: 11px;
 }
 
 .tableRow:hover .linkURL {

@@ -24,6 +24,8 @@ for (i = 1; i < categories.length; i++) {
     bigBox.className = "bigBox";
 
     for (j = 1; j < section.length-1; j+=3) {
+        var rowLink = document.createElement("a")
+        rowLink.href = section[j+1]
         var rowContent = document.createElement("div");
         rowContent.className = "tableRow";        
         rowContent.style.backgroundImage = "url('"+section[j+2]+"')"
@@ -39,7 +41,8 @@ for (i = 1; i < categories.length; i++) {
         rowContent.appendChild(linkTitle)
         rowContent.appendChild(linkURL)
 
-        bigBox.appendChild(rowContent);
+        rowLink.appendChild(rowContent)
+        bigBox.appendChild(rowLink);
     }
 
     bigBox.appendChild(rowContent);

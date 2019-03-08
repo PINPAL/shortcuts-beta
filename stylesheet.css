@@ -18,14 +18,15 @@ a {
 body {
 	background-color: #292C30;
 }
+
 h1 {
-	font-size: 20pt;
+	font-size: 18pt;
 	font-weight: 600;
 	text-align: center;
 }
 
 .bigBox {
-	width: 85%;
+	width: 80%;
 	background: #2F3439;
 	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
 	text-align: left;
@@ -138,3 +139,11 @@ input[type=text] {
 		  display: none;
 	  }
   }
+
+  /*Wrapper*/
+.wrapper {
+    width: calc(100%-20px);
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+}

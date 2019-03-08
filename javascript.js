@@ -17,7 +17,7 @@ for (i = 1; i < categories.length; i++) {
     console.log(section);
     
     var sectionHeader = document.createElement("h1");
-    sectionHeader.innerText = "Section "+ i;
+    sectionHeader.innerText = section[0]
     document.getElementsByTagName("body")[0].appendChild(sectionHeader);
 
     var bigBox = document.createElement("div");

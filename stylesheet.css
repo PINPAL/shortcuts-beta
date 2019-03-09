@@ -95,6 +95,55 @@ h1 {
 	-ms-transition: all 0.3s ease;
 }
 
+.editButtonWrapper {
+	text-align: center;
+}
+.editButton {
+	width: 100%;
+	max-width: 50px;
+	min-height: 50px;
+	background-color: rgba(255,255,255,.25);
+	background-size: 25px;
+	background-image: url('assets/shortcuts/addIcon.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	font-size: 0;
+	border-radius: 25px;
+	border: none;
+	padding: 10px;
+	margin-bottom: 10px;
+	outline: none;
+	transition: all 0.3s ease;
+	display: none;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+}
+.editButton:hover {
+	background-size: 0;
+	background-color: rgba(255,255,255,.9);
+	color: black;
+	font-size: 13pt;
+	max-width: 100%;
+}
+
+.navbarSeperator {
+	vertical-align: middle;
+	border-left-style: solid; 
+	border-width: 3px; 
+	border-color: rgba(255,255,255,.3);
+	display:inline-block; 
+	min-width: 1px;
+	max-width: 1px;
+	min-height: 40px;
+	max-height: 40px;
+	text-align:center;
+	color: rgba(0,0,0,0);
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
 a {
 	text-decoration: none;
 }

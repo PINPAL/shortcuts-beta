@@ -15,14 +15,14 @@ https://www.example4.com;
 https://pinpal.github.io/assets/shortcuts/shortcut-icons/ebay.png;
 
 #More Random Trash[2];
-Example4 Website;
-https://www.example4.com;
+Example5 Website;
+https://www.example5.com;
 https://pinpal.github.io/assets/shortcuts/shortcut-icons/ebay.png;
-Example2 Website;
-https://www.example2.com;
+Example6 Website;
+https://www.example6.com;
 https://pinpal.github.io/assets/shortcuts/shortcut-icons/inbox.png;
-Example3 Website;
-https://www.example3.com;
+Example7 Website;
+https://www.example7.com;
 https://pinpal.github.io/assets/shortcuts/shortcut-icons/iplayer.png;
 
 #Stuff[3];
@@ -31,12 +31,13 @@ https://www.google.com;
 https://pinpal.github.io/assets/shortcuts/shortcut-icons/steam.png;
 
 #Other Crap[3];
-Example4 Website;
-https://www.example4.com;
+Random Site;
+https://random-site.com;
 https://pinpal.github.io/assets/shortcuts/shortcut-icons/ebay.png;
-Example2 Website;
-https://www.example2.com;
+Another Useless Site;
+https://www.another-useless.com;
 https://pinpal.github.io/assets/shortcuts/shortcut-icons/inbox.png;
-Example3 Website;
-https://www.example3.com;
+Some Link;
+https://www.some-link.com;
 https://pinpal.github.io/assets/shortcuts/shortcut-icons/iplayer.png;
+

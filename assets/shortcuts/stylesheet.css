@@ -208,7 +208,7 @@ input[type=text] {
 .popupWrapper {
 	display: none;
 	background-color: rgba(0,0,0,.8);
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	min-width: 100%;
@@ -234,6 +234,10 @@ h2 {
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+}
+
+#addShortcut, #addCategory {
+	display: none;
 }
 
 .button {

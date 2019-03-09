@@ -9,7 +9,7 @@ a {
 }
 
 .column {
-    float: left;
+  float: left;
 	width: 25%;
 	max-width: 25%;
 	overflow: hidden;
@@ -19,10 +19,16 @@ body {
 	background-color: #292C30;
 }
 
-h1 {
+h1, .editModeTitle {
+	vertical-align: middle;
 	font-size: 18pt;
 	font-weight: 600;
 	text-align: center;
+}
+.editModeTitle {
+	max-width: calc(100% - 65px);
+	background-color: rgba(255,255,255,.2);
+	text-align: left;
 }
 
 .bigBox, .popupWindow {
@@ -293,4 +299,47 @@ h2 {
 	-moz-transition: all 0.3s ease;
 	-o-transition: all 0.3s ease;
 	-ms-transition: all 0.3s ease;
+}
+
+.deleteCategoryButton {
+	display: none;
+	float: right;
+	cursor: pointer;
+	width: 100%;
+	max-width: 20px;
+	min-height: 20px;
+	background-size: 20px;
+	background-image: url('delete.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	position: absolute;
+	top: 5px;
+	right: 10px;
+	font-size: 0;
+	margin: 10px;
+	border: none;
+	outline: none;
+	transition: all 0.3s ease;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+}
+.deleteCategoryButton:hover {
+	background-size: 25px;
+	border-radius: 50%;
+	background-color: #b53d3d;
+	margin: -5px;
+	padding: 15px;
+}
+
+.categoryHeader {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	max-width: calc(80% + 40px);
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }

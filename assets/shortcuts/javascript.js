@@ -24,20 +24,20 @@ function loadConfig(showEditMode) {
     for (i = 1; i < categories.length; i++) {
         //Split up category into title, links and header
         section = categories[i].split(";");
-        //Create "Add New Link" button
-        var editButtonWrapper = document.createElement("div")
-        editButtonWrapper.className = "editButtonWrapper"
-        var editButton = document.createElement("button")
-        editButton.className = "editButton";
-        editButton.setAttribute("onclick","addShortcut('" + section[0] + "')")
-        editButton.innerText = "Add New Link";
-        editButtonWrapper.appendChild(editButton);
-        //Create the section header
-        var sectionHeader = document.createElement("h1");
-        sectionHeader.innerText = section[0].replace(/\[.\]/,"")
+        //Create category header (contains title/delete button etc)
+        var categoryHeader = document.createElement("div")
+        categoryHeader.className = "categoryHeader"
+        //Create the category name title
+        var categoryName = document.createElement("h1");
+        categoryName.innerText = section[0].replace(/\[.\]/,"")
         var columnForSection = section[0]
         columnForSection = columnForSection[columnForSection.search(/\[.\]/)+ 1];
-        document.getElementsByClassName("column")[columnForSection].appendChild(sectionHeader);
+        //Create the "Delete Category" button
+        var deleteCategoryButton = document.createElement("div")
+        deleteCategoryButton.className = "deleteCategoryButton"
+        //Add category header to column
+        categoryHeader.append(categoryName,deleteCategoryButton)
+        document.getElementsByClassName("column")[columnForSection].appendChild(categoryHeader);
         //Create the bigbox
         var bigBox = document.createElement("div");
         bigBox.className = "bigBox";
@@ -65,11 +65,20 @@ function loadConfig(showEditMode) {
             a.appendChild(rowContent)
             bigBox.appendChild(a);
         }
-        //Add the bigboxes to the columns
-        if (section.length > 1) { 
+        //Add the row to the bigbox
+        if (section.length > 1) {
             bigBox.appendChild(a);
         }
+        //Create "Add New Link" button
+        var editButtonWrapper = document.createElement("div")
+        editButtonWrapper.className = "editButtonWrapper"
+        var editButton = document.createElement("button")
+        editButton.className = "editButton";
+        editButton.setAttribute("onclick","addShortcut('" + section[0] + "')")
+        editButton.innerText = "Add New Link";
+        editButtonWrapper.appendChild(editButton);
         bigBox.appendChild(editButtonWrapper);
+        //Append the section to the column
         document.getElementsByClassName("column")[columnForSection].appendChild(bigBox);
         
     }
@@ -85,10 +94,7 @@ function loadConfig(showEditMode) {
         document.getElementsByClassName("column")[column].appendChild(editButtonWrapper);
     }
     //Shows edit buttons again if specified by parameter (needed for Applying Changes)
-    if (showEditMode) {
-        showHideElement("editButton",true)
-        showHideElement("addColumnButton",true)
-    }
+    editMode(true)
 }
 
 
@@ -107,14 +113,16 @@ function showHideElement(className,showHide) {
 }
 
 //Enable/Disable Edit Mode
-function editMode() {
-    if (document.getElementById("editModeButton").innerText == "Edit Page") {
+function editMode(override) {
+    if (document.getElementById("editModeButton").innerText == "Edit Page" || override) {
         showHideElement("editButton",true)
         showHideElement("addColumnButton",true)
+        showHideElement("deleteCategoryButton",true)
        document.getElementById("editModeButton").innerHTML = 'Save Changes'
     } else {
         showHideElement("editButton",false)
         showHideElement("addColumnButton",false)
+        showHideElement("deleteCategoryButton",false)
         document.getElementById("editModeButton").innerHTML = 'Edit Page'
     }
 }

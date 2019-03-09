@@ -28,8 +28,10 @@ function loadConfig(showEditMode) {
         var categoryHeader = document.createElement("div")
         categoryHeader.className = "categoryHeader"
         //Create the category name title
-        var categoryName = document.createElement("h1");
-        categoryName.innerText = section[0].replace(/\[.\]/,"")
+        var categoryName = document.createElement("input");
+        categoryName.value = section[0].replace(/\[.\]/,"")
+        categoryName.className = "categoryName"
+        categoryName.type = "text"
         var columnForSection = section[0]
         columnForSection = columnForSection[columnForSection.search(/\[.\]/)+ 1];
         //Create the "Delete Category" button
@@ -118,11 +120,17 @@ function editMode(override) {
         showHideElement("editButton",true)
         showHideElement("addColumnButton",true)
         showHideElement("deleteCategoryButton",true)
+        for (i=0; i < document.getElementsByClassName("categoryName").length; i++) {
+            document.getElementsByClassName("categoryName")[i].className = "editModeTitle";
+        }
        document.getElementById("editModeButton").innerHTML = 'Save Changes'
     } else {
         showHideElement("editButton",false)
         showHideElement("addColumnButton",false)
         showHideElement("deleteCategoryButton",false)
+        for (i=0; i < document.getElementsByClassName("editModeTitle").length; i++) {
+            document.getElementsByClassName("editModeTitle")[i].className = "categoryName";
+        }
         document.getElementById("editModeButton").innerHTML = 'Edit Page'
     }
 }

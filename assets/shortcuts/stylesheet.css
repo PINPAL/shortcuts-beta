@@ -31,7 +31,8 @@ body {
 }
 .editModeTitle {
 	max-width: calc(100% - 65px);
-	background: red;
+	background-color: red;
+	color: blue;
 	text-align: left;
 }
 

@@ -83,8 +83,8 @@ function loadConfig(showEditMode) {
         document.getElementsByClassName("column")[column].appendChild(editButtonWrapper);
     }
     if (showEditMode) {
-        showHideElement("editButton","True")
-        showHideElement("addColumnButton","True")
+        showHideElement("editButton",true)
+        showHideElement("addColumnButton",true)
     }
 }
 
@@ -92,7 +92,7 @@ function loadConfig(showEditMode) {
 //Function to hide/show all elements of a class
 function showHideElement(className,showHide) {
     var elements = document.getElementsByClassName(className);
-    if (showHide == "True") {
+    if (showHide == true) {
         for (i=0; i < elements.length; i++) {
          elements[i].style.display = "inline";
        }
@@ -106,12 +106,12 @@ function showHideElement(className,showHide) {
 //Enable/Disable Edit Mode
 function editMode() {
     if (document.getElementById("editModeButton").innerText == "Edit Page") {
-        showHideElement("editButton","True")
-        showHideElement("addColumnButton","True")
+        showHideElement("editButton",true)
+        showHideElement("addColumnButton",true)
        document.getElementById("editModeButton").innerHTML = 'Save Changes'
     } else {
-        showHideElement("editButton","False")
-        showHideElement("addColumnButton","False")
+        showHideElement("editButton",false)
+        showHideElement("addColumnButton",false)
         document.getElementById("editModeButton").innerHTML = 'Edit Page'
     }
 }

@@ -83,7 +83,7 @@ function loadConfig(showEditMode) {
     }
     if (showEditMode) {
         showHideElement("editButton","True")
-        showHideElement("addColumnButton","True") 
+        showHideElement("addColumnButton","True")
     }
 }
 

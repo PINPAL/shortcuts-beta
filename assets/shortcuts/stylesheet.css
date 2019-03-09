@@ -1,0 +1,291 @@
+* {
+	color: white;
+	font-family: 'Nunito', sans-serif;
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+.column {
+    float: left;
+	width: 25%;
+	max-width: 25%;
+	overflow: hidden;
+}
+
+body {
+	background-color: #292C30;
+}
+
+h1 {
+	font-size: 18pt;
+	font-weight: 600;
+	text-align: center;
+}
+
+.bigBox, .popupWindow {
+	width: 80%;
+	background: #2F3439;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+	text-align: left;
+	border-radius: 25px;
+	padding-top: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-top: 10px;
+	margin-bottom: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	border-style: solid;
+	border-color: rgba(255, 255, 255, 0.05);
+	border-width: 2px;
+}
+.linkTitle {
+	margin-top: 14pt;
+	font-size: 13pt;
+	display: block;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	max-height: 25px;
+}
+.linkURL {
+	color: rgba(255, 255, 255, 0.4);
+	font-size: 0;
+	opacity: 0;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	max-height: 15px;
+}
+.tableRow {
+	background-size: 42px;
+	background-repeat: no-repeat;
+	background-position-y: center;
+	padding-left: 58px;
+	min-height: 50px;
+	vertical-align: middle;
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+
+/*Fancy Animation for rows of apps*/
+.tableRow:hover {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	min-height: 65px;
+	background-size: 55px;
+	padding-left: 70px;
+}
+.tableRow:hover .linkTitle {
+	margin-top: 0;
+	font-size: 19pt;
+	padding-bottom: 11px;
+}
+
+.tableRow:hover .linkURL {
+	font-size: 13pt;
+	opacity: 1;
+}
+.tableRow, .linkURL, .linkTitle {
+	transition: all 0.3s ease;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+}
+
+.editButtonWrapper {
+	text-align: center;
+}
+.editButton, .addColumnButton {
+	width: 100%;
+	max-width: 50px;
+	min-height: 50px;
+	background-color: rgba(255,255,255,.25);
+	background-size: 25px;
+	background-image: url('addIcon.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	font-size: 0;
+	border-radius: 25px;
+	border: none;
+	padding: 10px;
+	margin-bottom: 10px;
+	outline: none;
+	display: none;
+	transition: all 0.3s ease;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+}
+.editButton:hover, .addColumnButton:hover {
+	background-size: 0;
+	background-color: rgba(255,255,255,.9);
+	color: black;
+	font-size: 13pt;
+	max-width: 100%;
+}
+.addColumnButton {
+	background-color: rgba(255,255,255,.05);
+}
+.addColumnButton:hover {
+	background-color: rgba(255,255,255,.5);
+	max-width: 50%;
+}
+
+.navbarSeperator {
+	vertical-align: middle;
+	border-left-style: solid; 
+	border-width: 3px; 
+	border-color: rgba(255,255,255,.3);
+	display:inline-block; 
+	min-width: 1px;
+	max-width: 1px;
+	min-height: 40px;
+	max-height: 40px;
+	text-align:center;
+	color: rgba(0,0,0,0);
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+a {
+	text-decoration: none;
+}
+
+/*Searchbox*/
+input[type=text] {
+	background: rgba(200, 200, 255, 0.2);
+	text-align: left;
+	border-radius: 25px;
+	color:white;
+	font-size: 20px;
+	border: none;
+	margin-right: 5px;
+	height: 100%;
+	max-height: 36px;
+	border-style: solid;
+	border-color: rgba(255, 255, 255, 0.05);
+	border-width: 2px;
+	vertical-align: middle;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+	box-sizing: border-box;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	padding-left: 15px;
+	padding-right: 15px;
+	min-height: 40px;
+	max-height: 40px;
+	display: inline-block;
+	overflow: hidden;
+	outline: none;
+  }
+  input[type=text]:hover {
+	background: linear-gradient(to right, rgba(149,136,213,0.4) , rgba(171,89,147,0.4));
+  }
+  input[type=text]:focus {
+	background: rgba(200, 200, 255, 0.35);
+	border-color: rgba(255, 255, 255, 0.15);
+  }
+  
+  /*Hide search buttons at low resolutions*/
+  @media screen and (max-width: 700px) {
+	  input[type=text] {
+		  display: none;
+	  }
+  }
+
+  /*Wrapper*/
+.wrapper {
+    width: calc(100%-20px);
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.popupWrapper {
+	display: none;
+	background-color: rgba(0,0,0,.8);
+	position: absolute;
+	top: 0;
+	left: 0;
+	min-width: 100%;
+	min-height: 100%;
+	z-index: 1000;
+}
+
+p {
+	margin-bottom: 15px;
+	color: rgba(255,255,255,.6)
+}
+
+h2 {
+	margin-top: 30px;
+}
+
+.popupWindow {
+	z-index: 10001;
+	max-width: 600px;
+	padding:20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.button {
+	margin-top: 20px;
+  background: linear-gradient(to right, #55B49D , #2B7DCA);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border-radius: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 25px;
+	padding-right: 25px;
+	max-height: 50px;
+	min-height: 50px;
+	width: 100%;
+	max-width: 100%;
+  color:white;
+  font-size: 13pt;
+  border: none;
+  font-weight: normal;
+  text-transform: capitalize;
+	outline: none;
+	transition: all 0.3s ease;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+}
+.button:hover {
+	font-size: 16pt;
+  filter: hue-rotate(90deg);
+}
+
+.errorMessageBox {
+	background-image: url(error.png);
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position-y: 5px;
+	background-position-x: 25px;
+	margin-top: 20px;
+	width: 100%;
+	max-width: 100%;
+	background-color: #b53d3d;
+	opacity: 0;
+	text-align: center;
+	font-size: 0;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-radius: 25px;
+	transition: all 0.3s ease;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+}

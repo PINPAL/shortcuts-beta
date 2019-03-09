@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <title>PINPAL's Homepage</title>
+    <link rel="icon" href="assets/favicon.ico" class="next-head" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="assets/shortcuts/stylesheet.css">
 </head>
 <body>
 
@@ -59,24 +62,27 @@
         <div class="column"></div>
     </div>
 
-    <div class="popupWrapper" onclick="hidePopup()">
-        <h1 style="font-size: 26pt;">Add Link</h1>
-        <div class="bigBox" style="max-width: 600px;padding:20px;">
+    <div class="popupWrapper">
+        <div class="popupWindow">
+            <h1 style="font-size: 26pt;">Add Shortcut Link</h1>
             <h2>Enter the Title of the Shortcut:</h2>
             <p>This is the name that will be displayed.</p>
-            <input type="text" style="width: 100%;" placeholder="Link Title">
+            <input type="text" style="width: 100%;" id="linkTitleHolder" placeholder="Link Title">
             <h2>Enter the URL of the Shortcut:</h2>
             <p>This is the URL the link will go to.</p>
-            <input type="text" style="width: 100%;" placeholder="Link URL">
+            <input type="text" style="width: 100%;" id="linkURLHolder" placeholder="Link URL">
             <h2>Enter the URL of the Shortcut Icon:</h2>
             <p>This is will make your shortcut pretty.</p>
-            <input type="text" style="width: 100%;" placeholder="Icon URL">
+            <input type="text" style="width: 100%;" id="linkIconHolder" placeholder="Icon URL (Optional)">
+            <div class="errorMessageContainer"></div>
+            <button class="button" onclick="applyAddShortcut()">Apply Changes</button>
         </div>
+        
     </div>
 
 </body>
 <head>
-    <script src="javascript.js"></script>
+    <script src="assets/shortcuts/javascript.js"></script>
     <script src="assets/global-navbar/navbar.js"></script>
 </head>
 </html>

@@ -187,7 +187,7 @@ function applyAddCategory() {
         document.getElementById("addCategory").style.display = "none";
         //Split up config and add new sections
         var splitConfig = [config]
-        splitConfig.splice(2,0,"#" + categoryName + "[" + window.value + "];Example Site;https://pinpal.github.io;https://pinpal.github.io/assets/pinpal.png");
+        splitConfig.splice(2,0,"#" + categoryName + "[" + window.value+ "]");
         //Merge split config back into one
         config = ""
         for (i=0; i < splitConfig.length; i++) {

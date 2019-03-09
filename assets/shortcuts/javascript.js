@@ -14,7 +14,7 @@ var config = loadFile("config.txt").replace(/\r?\n|\r/g,"")
 loadConfig(false)
 
 //Function to render
-function loadConfig(showEditMode) {
+function loadConfig(showeditMode) {
     //Clear old columns
     for (i=0; i < document.getElementsByClassName("column").length; i++) {
         document.getElementsByClassName("column")[i].innerHTML = "";
@@ -122,8 +122,14 @@ function editMode(override) {
         showHideElement("editButton",true)
         showHideElement("addColumnButton",true)
         showHideElement("deleteCategoryButton",true)
+        console.log(document.getElementsByClassName("categoryName"));
+        console.log(document.getElementsByClassName("categoryName").length);
         for (i=0; i < document.getElementsByClassName("categoryName").length; i++) {
+            console.log(i);
+            
             document.getElementsByClassName("categoryName")[i].className = "editModeTitle";
+            console.log(document.getElementsByClassName("categoryName")[i]);
+            
         }
        document.getElementById("editModeButton").innerHTML = 'Save Changes'
     } else {

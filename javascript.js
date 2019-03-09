@@ -19,6 +19,7 @@ for (i = 1; i < categories.length; i++) {
     editButtonWrapper.className = "editButtonWrapper"
     var editButton = document.createElement("button")
     editButton.className = "editButton";
+    editButton.setAttribute("onclick","addShortcut('" + section[0].replace(/\[.\]/,"") + "')")
     editButton.innerText = "Add New Link";
     editButtonWrapper.appendChild(editButton);
     
@@ -60,18 +61,54 @@ for (i = 1; i < categories.length; i++) {
     document.getElementsByClassName("column")[columnForSection].appendChild(bigBox);
 }
 
-function editMode() {
-    if (document.getElementById("editModeButton").innerText == "Edit Page") {
-        var editButtons = document.getElementsByClassName("editButton")
-        for(i=0; i < editButtons.length; i++) {
-         editButtons[i].style.display = "inline";
+//Edit Column Buttons
+for (i=0; i < 4; i++) {
+    var editButtonWrapper = document.createElement("div")
+    editButtonWrapper.className = "editButtonWrapper"
+    var addColButton = document.createElement("button")
+    addColButton.className = "addColumnButton";
+    addColButton.innerText = "Add Category";
+    editButtonWrapper.appendChild(addColButton);
+    document.getElementsByClassName("column")[i].appendChild(editButtonWrapper);
+}
+
+
+//Function to hide/show all elements of a class
+function showHideElement(className,showHide) {
+    var elements = document.getElementsByClassName(className);
+    if (showHide == "True") {
+        for (i=0; i < elements.length; i++) {
+         elements[i].style.display = "inline";
        }
-       document.getElementById("editModeButton").innerHTML = 'Save Changes'
     } else {
-        document.getElementById("editModeButton").innerHTML = 'Edit Page'
-        var editButtons = document.getElementsByClassName("editButton")
-        for(i=0; i < editButtons.length; i++) {
-         editButtons[i].style.display = "none";
-       }
+        for (i=0; i < elements.length; i++) {
+        elements[i].style.display = "none";
+        }
     }
 }
+
+//Enable/Disable Edit Mode
+function editMode() {
+    if (document.getElementById("editModeButton").innerText == "Edit Page") {
+        showHideElement("editButton","True")
+        showHideElement("addColumnButton","True")
+       document.getElementById("editModeButton").innerHTML = 'Save Changes'
+    } else {
+        showHideElement("editButton","False")
+        showHideElement("addColumnButton","False")
+        document.getElementById("editModeButton").innerHTML = 'Edit Page'
+    }
+}
+
+//Add Shortcut Button
+function addShortcut(sectionID) {
+    document.getElementsByClassName("popupWrapper")[0].style.display = "inline";
+}
+
+//Hide Popup 
+function hidePopup() {
+    document.getElementsByClassName("popupWrapper")[0].style.display = "none";
+}
+
+//Centering Popup Window
+document.getElementsByClassName("popupWrapper")[0].style.paddingTop = window.innerWidth/2 - 700 + "px"

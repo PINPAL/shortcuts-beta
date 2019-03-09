@@ -98,7 +98,7 @@ h1 {
 .editButtonWrapper {
 	text-align: center;
 }
-.editButton {
+.editButton, .addColumnButton {
 	width: 100%;
 	max-width: 50px;
 	min-height: 50px;
@@ -120,12 +120,19 @@ h1 {
 	-o-transition: all 0.3s ease;
 	-ms-transition: all 0.3s ease;
 }
-.editButton:hover {
+.editButton:hover, .addColumnButton:hover {
 	background-size: 0;
 	background-color: rgba(255,255,255,.9);
 	color: black;
 	font-size: 13pt;
 	max-width: 100%;
+}
+.addColumnButton {
+	background-color: rgba(255,255,255,.05);
+}
+.addColumnButton:hover {
+	background-color: rgba(255,255,255,.5);
+	max-width: 50%;
 }
 
 .navbarSeperator {
@@ -196,4 +203,24 @@ input[type=text] {
     max-width: 1500px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.popupWrapper {
+	display: none;
+	background-color: rgba(0,0,0,.8);
+	position: absolute;
+	top: 0;
+	left: 0;
+	min-width: 100%;
+	min-height: 100%;
+	z-index: 1000;
+}
+
+p {
+	margin-bottom: 15px;
+	color: rgba(255,255,255,.6)
+}
+
+h2 {
+	margin-top: 30px;
 }

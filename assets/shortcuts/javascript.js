@@ -96,7 +96,9 @@ function loadConfig(showEditMode) {
         document.getElementsByClassName("column")[column].appendChild(editButtonWrapper);
     }
     //Shows edit buttons again if specified by parameter (needed for Applying Changes)
-    editMode(true)
+    if (showeditMode) { 
+        editMode(true)
+    }
 }
 
 

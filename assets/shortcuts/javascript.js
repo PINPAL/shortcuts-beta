@@ -19,9 +19,10 @@ function loadConfig(showEditMode) {
     for (i=0; i < document.getElementsByClassName("column").length; i++) {
         document.getElementsByClassName("column")[i].innerHTML = "";
     }
-    //Split up config
+    //Split up config into categories
     var categories = config.split("#")
     for (i = 1; i < categories.length; i++) {
+        //Split up category into title, links and header
         section = categories[i].split(";");
         //Create "Add New Link" button
         var editButtonWrapper = document.createElement("div")

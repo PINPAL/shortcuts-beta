@@ -66,7 +66,9 @@ function loadConfig(showEditMode) {
             bigBox.appendChild(a);
         }
         //Add the bigboxes to the columns
-        bigBox.appendChild(a);
+        if (section.length > 1) { 
+            bigBox.appendChild(a);
+        }
         bigBox.appendChild(editButtonWrapper);
         document.getElementsByClassName("column")[columnForSection].appendChild(bigBox);
         
@@ -82,6 +84,7 @@ function loadConfig(showEditMode) {
         editButtonWrapper.appendChild(addColButton);
         document.getElementsByClassName("column")[column].appendChild(editButtonWrapper);
     }
+    //Shows edit buttons again if specified by parameter (needed for Applying Changes)
     if (showEditMode) {
         showHideElement("editButton",true)
         showHideElement("addColumnButton",true)
@@ -187,14 +190,12 @@ function applyAddCategory() {
         document.getElementById("addCategory").style.display = "none";
         //Split up config and add new sections
         var splitConfig = [config]
-        splitConfig.splice(2,0,"#" + categoryName + "[" + window.value+ "]");
+        splitConfig.splice(2,0,"#" + categoryName + "[" + window.value + "]");
         //Merge split config back into one
         config = ""
         for (i=0; i < splitConfig.length; i++) {
             config = config + splitConfig[i]
         }
-        console.log(config)
-        console.log(splitConfig)
         //Display new config
         loadConfig(true)
     }

@@ -99,6 +99,7 @@ h1 {
 	text-align: center;
 }
 .editButton, .addColumnButton {
+	cursor: pointer;
 	width: 100%;
 	max-width: 50px;
 	min-height: 50px;

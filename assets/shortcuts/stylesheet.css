@@ -19,8 +19,9 @@ body {
 	background-color: #292C30;
 }
 
-.categoryName, .editModeTitle {
-	background: none !important;
+.categoryName {
+	outline: none !important;
+	background: none;
 	vertical-align: middle;
 	font-size: 18pt;
 	font-weight: 600;
@@ -28,12 +29,12 @@ body {
 	text-align: center;
 	width: 100%;
 	max-width: 100%;
-}
-.editModeTitle {
-	max-width: calc(100% - 65px);
-	background-color: red;
-	color: blue;
-	text-align: left;
+	border-radius: 25px;
+	transition: all 0.3s ease;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
 }
 
 .bigBox, .popupWindow {
@@ -168,7 +169,7 @@ a {
 }
 
 /*Searchbox*/
-.navbarSearch {
+.navbarSearch, .popupTextField {
 	background: rgba(200, 200, 255, 0.2);
 	text-align: left;
 	border-radius: 25px;
@@ -194,10 +195,10 @@ a {
 	overflow: hidden;
 	outline: none;
   }
-  input[type=text]:hover {
+	.navbarSearch:hover, .popupTextField:hover {
 	background: linear-gradient(to right, rgba(149,136,213,0.4) , rgba(171,89,147,0.4));
   }
-  input[type=text]:focus {
+	.navbarSearch:focus, .popupTextField:focus {
 	background: rgba(200, 200, 255, 0.35);
 	border-color: rgba(255, 255, 255, 0.15);
   }
@@ -318,8 +319,8 @@ h2 {
 	background-repeat: no-repeat;
 	background-position: center;
 	position: absolute;
-	top: 5px;
-	right: 10px;
+	top: 8px;
+	right: 5px;
 	font-size: 0;
 	margin: 10px;
 	border: none;
@@ -347,4 +348,11 @@ h2 {
 	position: relative;
 	overflow: hidden;
 	text-overflow: ellipsis;
+}
+
+.largeErrorMessageContainer {
+	max-width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 30px;
 }

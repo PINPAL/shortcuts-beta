@@ -16,7 +16,7 @@
                 <div class="navIconContainer">
         
                     <form method="get" action="http://www.google.com/search" style="display:inline-block">
-                        <input type="text" name="q" placeholder="Search" class="navbarSearch">
+                        <input type="text" class="popupTextField" name="q" placeholder="Search" class="navbarSearch">
                         <button type="submit" style="padding:0;margin:0;background:none;border:none;">
                             <div class="navButton" style="background: linear-gradient(to right, #15a55d , #14d179)">
                                 <img src="assets/page-icons/search.png" class="navButtonIcon" align="left">Search
@@ -56,6 +56,7 @@
         </div>
     
     <div class="wrapper">
+        <div class="largeErrorMessageContainer"></div>
         <div class="column"></div>
         <div class="column"></div>
         <div class="column"></div>
@@ -67,13 +68,13 @@
             <h1 style="font-size: 26pt;">Add Shortcut Link</h1>
             <h2>Enter the Title of the Shortcut:</h2>
             <p>This is the name that will be displayed.</p>
-            <input type="text" style="width: 100%;" id="linkTitleHolder" placeholder="Link Title">
+            <input type="text" class="popupTextField" style="width: 100%;" id="linkTitleHolder" placeholder="Link Title">
             <h2>Enter the URL of the Shortcut:</h2>
             <p>This is the URL the link will go to.</p>
-            <input type="text" style="width: 100%;" id="linkURLHolder" placeholder="Link URL">
+            <input type="text" class="popupTextField" style="width: 100%;" id="linkURLHolder" placeholder="Link URL">
             <h2>Enter the URL of the Shortcut Icon:</h2>
             <p>This is will make your shortcut pretty.</p>
-            <input type="text" style="width: 100%;" id="linkIconHolder" placeholder="Icon URL (Optional)">
+            <input type="text" class="popupTextField" style="width: 100%;" id="linkIconHolder" placeholder="Icon URL (Optional)">
             <div class="errorMessageContainer"></div>
             <button class="button" onclick="applyAddShortcut()">Apply Changes</button>
         </div>
@@ -81,7 +82,7 @@
             <h1 style="font-size: 26pt;">Add Category</h1>
             <h2>Enter the Title of the Category:</h2>
             <p>This is the large name above that will be displayed.</p>
-            <input type="text" style="width: 100%;" id="categoryName" placeholder="Category Name">
+            <input type="text" class="popupTextField" style="width: 100%;" id="categoryName" placeholder="Category Name">
             <div class="errorMessageContainer"></div>
             <button class="button" onclick="applyAddCategory()">Apply Changes</button>
         </div>

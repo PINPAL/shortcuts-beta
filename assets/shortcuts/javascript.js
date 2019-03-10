@@ -32,6 +32,7 @@ function loadConfig(showeditMode) {
         categoryName.value = section[0].replace(/\[.\]/,"")
         categoryName.className = "categoryName"
         categoryName.type = "text"
+        categoryName.readOnly = true
         var columnForSection = section[0]
         columnForSection = columnForSection[columnForSection.search(/\[.\]/)+ 1];
         //Create the "Delete Category" button
@@ -117,29 +118,53 @@ function showHideElement(className,showHide) {
 }
 
 //Enable/Disable Edit Mode
-function editMode(override) {
+function editMode(override) { //Enable edit mode
     if (document.getElementById("editModeButton").innerText == "Edit Page" || override) {
-        showHideElement("editButton",true)
-        showHideElement("addColumnButton",true)
-        showHideElement("deleteCategoryButton",true)
-        console.log(document.getElementsByClassName("categoryName"));
-        console.log(document.getElementsByClassName("categoryName").length);
+        //Load edit mode stylesheet
+        var link = document.createElement('link');
+        link.rel = 'stylesheet'
+        link.type = 'text/css';
+        link.href = 'assets/shortcuts/editMode.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+        //Set category names to editable (NOT read-only)
         for (i=0; i < document.getElementsByClassName("categoryName").length; i++) {
-            console.log(i);
-            
-            document.getElementsByClassName("categoryName")[i].className = "editModeTitle";
-            console.log(document.getElementsByClassName("categoryName")[i]);
-            
+            document.getElementsByClassName("categoryName")[i].readOnly = false
         }
-       document.getElementById("editModeButton").innerHTML = 'Save Changes'
-    } else {
-        showHideElement("editButton",false)
-        showHideElement("addColumnButton",false)
-        showHideElement("deleteCategoryButton",false)
-        for (i=0; i < document.getElementsByClassName("editModeTitle").length; i++) {
-            document.getElementsByClassName("editModeTitle")[i].className = "categoryName";
+        //Set text of navbar settings button
+        document.getElementById("editModeButton").innerHTML = 'Save Changes'
+    } else { //Disable edit mode
+        //Reset error messages
+        document.getElementsByClassName("largeErrorMessageContainer")[0].innerHTML = ""
+        var errorMessages = [];
+        //Validate changed names of categories
+        for (i=0; i < document.getElementsByClassName("categoryName").length; i++) {
+            if (document.getElementsByClassName("categoryName")[i].value == "") {
+                errorMessages.push("Error: Category name must not be empty!")
+            }
         }
-        document.getElementById("editModeButton").innerHTML = 'Edit Page'
+        //Display error messages
+        for (i=0; i < errorMessages.length; i++) {
+            errorMesssageBox = document.createElement("div")
+            errorMesssageBox.className = "errorMessageBox"
+            document.getElementsByClassName("largeErrorMessageContainer")[0].appendChild(errorMesssageBox)
+            document.getElementsByClassName("errorMessageBox")[i].innerText = errorMessages[i]
+            window.setTimeout(showErrorMesssges,10);
+        }
+        //If no error messages, save changes
+        if (errorMessages.length == 0) {
+            //Disable edit mode stylesheet
+            for (i=0; i < document.styleSheets.length; i++) {
+                if (document.styleSheets[i].href == window.location + 'assets/shortcuts/editMode.css') {
+                    document.styleSheets[i].disabled = true;
+                }
+            }
+            //Set category names to read only
+            for (i=0; i < document.getElementsByClassName("categoryName").length; i++) {
+                document.getElementsByClassName("categoryName")[i].readOnly = true
+            }
+            //Set text of navbar settings button
+            document.getElementById("editModeButton").innerHTML = 'Edit Page'
+        }
     }
 }
 

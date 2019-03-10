@@ -387,7 +387,7 @@ function addCategory(columnNumber) {
 
 //Hide popup when clicking on background ONLY (prevent propagation of onClick)
 document.getElementsByClassName("popupWrapper")[0].addEventListener("click", function (e) {
-    if (window.innerWidth < 850) { //Prevent closing of resolution error popup
+    if (window.innerWidth > 720) { //Prevent closing of resolution error popup
         e = window.event || e;
         if (this === e.target) {
             displayPopup(false,"")
@@ -452,7 +452,7 @@ function uploadText() {
 
 //Error if resolution too small
 window.onresize = function(event) {
-    if (window.innerWidth < 850) {
+    if (window.innerWidth < 720) {
         displayPopup(true,"resolutionTooSmall")
     } else {
         displayPopup(false,"")

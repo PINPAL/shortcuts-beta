@@ -50,6 +50,27 @@
                 <p>You can backup your layout to a file so that you can import it later if your browser cookies are deleted.</p>
                 <button class="button" onclick="downloadConfig()">Download Config</button>
             </div>
+            <div class="popupWindow" id="customize">
+                    <div class="popupCloseButton" onClick="displayPopup(false,'')"></div>
+                    <h1 style="font-size: 26pt;">Customize</h1>
+                    <h2>Background Color:</h2>
+                    <p>The background color of the page. Accepts Hex value</p>
+                    <input type="text" class="popupTextField" style="width: 100%;" id="customizeBackgroundColor" placeholder="#00000">
+                    <h2>Box Color:</h2>
+                    <p>The color of the link boxes. Accepts Hex value</p>
+                    <input type="text" class="popupTextField" style="width: 100%;" id="customizeBoxColor" placeholder="#00000">
+                    <h2>Link Title Color:</h2>
+                    <p>The color of the title of links in the boxes.</p>
+                    <input type="text" class="popupTextField" style="width: 100%;" id="customizeLinkColor" placeholder="#00000">
+                    <h2>Link URL Color:</h2>
+                    <p>The color of the link URL in the boxes.</p>
+                    <input type="text" class="popupTextField" style="width: 100%;" id="customizeURLColor" placeholder="#00000">
+                    <h2>Category Title Color:</h2>
+                    <p>The color of the large titles above categories.</p>
+                    <input type="text" class="popupTextField" style="width: 100%;" id="customizeSubtitleColor" placeholder="#00000">
+                    <div class="errorMessageContainer"></div>
+                    <button class="button" style="background: rgba(255, 255, 255, 0.3);color: rgba(0,0,0,.7)">Coming Soon...</button>
+                </div>
         </div>
 
     <div class="mainContent">
@@ -102,7 +123,7 @@
                         <div class="navbarSeperator">.</div>
                         <div class="editModeNavButton" onClick="displayPopup(true,'exportConfig')">Export Config</div>
                         <div class="navbarSeperator">.</div>
-                        <div class="editModeNavButton">Configure</div>
+                        <div class="editModeNavButton" onClick="displayPopup(true,'customize')">Customize</div>
                         <div class="applyChangesBtn" onclick="editMode(false)">
                             <img src="assets/page-icons/settings.png" class="navButtonIcon" align="left">Save Changes
                         </div>

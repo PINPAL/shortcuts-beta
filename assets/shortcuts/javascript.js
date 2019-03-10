@@ -61,7 +61,7 @@ function loadConfig(showeditMode) {
             //Create the link URL
             var linkURL = document.createElement("span");
             linkURL.className = "linkURL"
-            linkURL.innerText = section[j + 1].replace(/^(https?:|)\/\/www\./, "")
+            linkURL.innerText = section[j + 1].replace(/^((https?:|)\/\/www\.)|www\./, "")
             //Add link and title into the row
             rowContent.appendChild(linkTitle)
             rowContent.appendChild(linkURL)
@@ -209,6 +209,10 @@ function applyAddShortcut() {
     var validURL = /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/ig
     if (validURL.test(linkURL) == false) {
         errorMessages.push("Error: Link URL is not a valid URL!")
+    }
+    //Generic icon application
+    if (linkIcon == "") {
+        linkIcon = "assets/shortcuts/genericIcon.png"
     }
     //Remove hashtags and semi-colons from URL and Icon
     linkURL = isNameInvalid(linkURL)[1]

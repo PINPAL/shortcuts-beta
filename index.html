@@ -50,6 +50,13 @@
                 <p>You can backup your layout to a file so that you can import it later if your browser cookies are deleted.</p>
                 <button class="button" onclick="downloadConfig()">Download Config</button>
             </div>
+            <div class="popupWindow" id="importConfig">
+                <div class="popupCloseButton" onClick="displayPopup(false,'')"></div>
+                <h1 style="font-size: 26pt;">Import Config</h1>
+                <h2 id="deleteDialogue">Load Your Backup</h2>
+                <p>You can load your backup that you created to restore a previous layout.</p>
+                <button class="button" onclick="importConfig()">Upload Config</button>
+            </div>
             <div class="popupWindow" id="customize">
                     <div class="popupCloseButton" onClick="displayPopup(false,'')"></div>
                     <h1 style="font-size: 26pt;">Customize</h1>
@@ -119,7 +126,7 @@
                         </div>
                     </div>
                     <div class="navEditMenu">
-                        <div class="editModeNavButton">Import Config</div>
+                        <div class="editModeNavButton" onClick="displayPopup(true,'importConfig')"">Import Config</div>
                         <div class="navbarSeperator">.</div>
                         <div class="editModeNavButton" onClick="displayPopup(true,'exportConfig')">Export Config</div>
                         <div class="navbarSeperator">.</div>

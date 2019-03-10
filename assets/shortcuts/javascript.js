@@ -156,7 +156,6 @@ function shiftCategory(categoryLocation,shift) {
         if (section[0].replace(/\[.\]/, "") == categoryLocation.parentNode.id) {
             //Calculate new column
             var newColumn = parseFloat(section[0].substr(-2, 1)) + shift;
-            console.log(newColumn)
             //Replace column number
             section[0] = section[0].replace(/\[.\]/, "[" + newColumn + "]")
                 //Combine section and put back into categories
@@ -420,4 +419,42 @@ function downloadConfig() {
     element.click();
     document.body.removeChild(element);
 }
+
+//Function to inport files
+function uploadText() {
+    return new Promise((resolve) => {
+        //Create file input
+        const uploader = document.createElement('input')
+        uploader.type = 'file'
+        uploader.style.display = 'none'
+
+        //Listen for files
+        uploader.addEventListener('change', () => {
+            const files = uploader.files
+
+            if (files.length) {
+                const reader = new FileReader()
+                reader.addEventListener('load', () => {
+                    uploader.parentNode.removeChild(uploader)
+                    resolve(reader.result)
+                })
+                reader.readAsText(files[0])
+            }
+        })
+
+        // trigger input
+        document.body.appendChild(uploader)
+        uploader.click()
+    })
+}
+
+//Import Config
+function importConfig() {
+    uploadText().then(config => {
+        document.cookie = config
+        loadConfig(true)
+        displayPopup(false,"")
+   })
+}
+
   

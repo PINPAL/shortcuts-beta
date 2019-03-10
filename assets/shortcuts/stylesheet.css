@@ -20,7 +20,12 @@ body {
 }
 
 .categoryName {
+	position: absolute;
+	top: 10px;
+	max-height: 32px;
+	height: 32px;
 	outline: none !important;
+	text-overflow: ellipsis;
 	background: none;
 	vertical-align: middle;
 	font-size: 18pt;
@@ -339,10 +344,48 @@ h2 {
 	padding: 15px;
 }
 
+.moveCategoryButton {
+	display: none;
+	float: right;
+	cursor: pointer;
+	width: 100%;
+	max-width: 20px;
+	min-height: 20px;
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: center;
+	position: absolute;
+	top: 8px;
+	font-size: 0;
+	margin: 10px;
+	border: none;
+	outline: none;
+	transition: all 0.3s ease;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+}
+.moveCategoryButton:hover {
+	background-size: 25px;
+	border-radius: 50%;
+	background-color: rgba(255,255,255,.4);
+	margin: -5px;
+	padding: 15px;
+}
+#rightButton {
+	background-image: url(right.png);
+	right: 50px;
+}
+#leftButton {
+	background-image: url(left.png);
+	right: 100px;
+}
+
 .categoryHeader {
-	padding-top: 10px;
-	padding-bottom: 10px;
 	max-width: calc(80% + 40px);
+	min-height: 54px;
+	max-height: 54px;
 	margin-left: auto;
 	margin-right: auto;
 	position: relative;

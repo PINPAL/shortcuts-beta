@@ -39,9 +39,22 @@ function loadConfig(showeditMode) {
         var deleteCategoryButton = document.createElement("div")
         deleteCategoryButton.className = "deleteCategoryButton"
         deleteCategoryButton.setAttribute("onClick","deleteCategory(this)")
+        //Create right move category buttons
+        console.log(section[0], columnForSection)
+        if (columnForSection < 3) {
+            var moveCategoryRightButton = document.createElement("div")
+            moveCategoryRightButton.className = "moveCategoryButton"
+            moveCategoryRightButton.id = "rightButton"
+            moveCategoryRightButton.setAttribute("onClick","shiftCategory(this,1)")
+        }
+        //Create left move category buttons
+        var moveCategoryLeftButton = document.createElement("div")
+        moveCategoryLeftButton.className = "moveCategoryButton"
+        moveCategoryLeftButton.id = "leftButton"
+        moveCategoryLeftButton.setAttribute("onClick","shiftCategory(this,-1)")
         //Add category header to column
-        categoryHeader.append(categoryName, deleteCategoryButton)
-        document.getElementsByClassName("column")[columnForSection].appendChild(categoryHeader);
+        categoryHeader.append(categoryName, moveCategoryLeftButton, moveCategoryRightButton, deleteCategoryButton)
+        document.getElementsByClassName("column")[columnForSection].appendChild(categoryHeader)
         //Create the bigbox
         var bigBox = document.createElement("div");
         bigBox.className = "bigBox";
@@ -121,6 +134,37 @@ function deleteCategory(categoryLocation) {
     config = ""
     for (i = 0; i < categories.length; i++) {
         config = config + ";#" + categories[i]
+    }
+    loadConfig(true)
+}
+
+//Move Category Buttons
+function shiftCategory(categoryLocation,shift) {
+    //Split up config into categories
+    var categories = config.split("#")
+    //Remove blank category
+    categories.splice(0,1)
+    for (i = 0; i < categories.length; i++) {
+        //Split up category into title, links and header
+        section = categories[i].split(";");
+        //Find section
+        if (section[0].replace(/\[.\]/, "") == categoryLocation.parentNode.id) {
+            //Calculate new column
+            var newColumn = parseFloat(section[0].substr(-2, 1)) + shift;
+            console.log(newColumn)
+            //Replace column number
+            section[0] = section[0].replace(/\[.\]/, "[" + newColumn + "]")
+                //Combine section and put back into categories
+                categories[i] = ""
+                for (j = 0; j < section.length - 1; j++) {
+                    categories[i] = categories[i] + section[j] + ";"
+                }
+        }
+    }
+    //Combine categories and put it back into config
+    config = ""
+    for (i = 0; i < categories.length; i++) {
+        config = config + "#" + categories[i]
     }
     loadConfig(true)
 }

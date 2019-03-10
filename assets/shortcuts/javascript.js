@@ -112,8 +112,16 @@ function loadConfig(showeditMode) {
     }
 }
 
-//Delete Category Button
+//Delete category button
 function deleteCategory(categoryLocation) {
+    displayPopup(true,"categoryDeleteConfirmation")
+    var categoryForDeletion = categoryLocation.parentNode.id
+    document.getElementById("deleteDialogue").innerText = "'" + categoryForDeletion + "' will be deleted"
+    document.getElementById("categoryDeleteConfirmationButton").setAttribute("onClick","confirmDeleteCategory("+ categoryForDeletion + ")")
+}
+
+//Confirm delete category
+function confirmDeleteCategory(categoryForDeletion) {
     //Split up config into categories
     var categories = config.split("#")
     //Remove blank category
@@ -122,7 +130,7 @@ function deleteCategory(categoryLocation) {
         //Split up category into title, links and header
         section = categories[i].split("•");
         //Find and delete section
-        if (section[0].replace(/\[.\]/, "") == categoryLocation.parentNode.id) {
+        if (section[0].replace(/\[.\]/, "") == categoryForDeletion) {
             categories.splice(i,1)
         }
     }
@@ -135,7 +143,7 @@ function deleteCategory(categoryLocation) {
     loadConfig(true)
 }
 
-//Move Category Buttons
+//Move category buttons
 function shiftCategory(categoryLocation,shift) {
     //Split up config into categories
     var categories = config.split("#")
@@ -271,10 +279,7 @@ function applyAddShortcut() {
     //If no error messages, apply the new link
     if (errorMessages.length == 0) {
         //Hide popup
-        document.getElementsByClassName("popupWrapper")[0].style.display = "none";
-        document.getElementById("addShortcut").style.display = "none";
-        document.getElementsByClassName("mainContent")[0].style.filter = "none";
-        document.getElementById("navbarContainer").style.top = "0";
+        displayPopup(false,"")
         //Split up config and add new sections
         var splitConfig = config.split((window.value))
         splitConfig.splice(1, 0, window.value)
@@ -336,10 +341,7 @@ function applyAddCategory() {
     //If no error messages, apply the new link
     if (errorMessages.length == 0) {
         //Hide popup
-        document.getElementsByClassName("popupWrapper")[0].style.display = "none";
-        document.getElementById("addCategory").style.display = "none";
-        document.getElementsByClassName("mainContent")[0].style.filter = "none";
-        document.getElementById("navbarContainer").style.top = "0";
+        displayPopup(false,"")
         //Split up config and add new sections
         var splitConfig = [config]
         splitConfig.splice(2, 0, "#" + categoryName + "[" + window.value + "]");
@@ -387,29 +389,32 @@ function showErrorMesssges() {
 //"Add New Link" Button
 function addShortcut(sectionID) {
     window.value = sectionID
-    document.getElementsByClassName("popupWrapper")[0].style.display = "inline";
-    document.getElementById("addShortcut").style.display = "inline";
-    document.getElementsByClassName("mainContent")[0].style.filter = "blur(15px)";
-    document.getElementById("navbarContainer").style.top = "-110px";
+    displayPopup(true,"addShortcut")
 }
 
 //"Add Category" Button
 function addCategory(columnNumber) {
     window.value = columnNumber
-    document.getElementsByClassName("popupWrapper")[0].style.display = "inline";
-    document.getElementById("addCategory").style.display = "inline";
-    document.getElementsByClassName("mainContent")[0].style.filter = "blur(15px)";
-    document.getElementById("navbarContainer").style.top = "-110px";
+    displayPopup(true,"addCategory")
 }
 
 //Hide popup when clicking on background ONLY (prevent propagation of onClick)
 document.getElementsByClassName("popupWrapper")[0].addEventListener("click", function (e) {
     e = window.event || e;
     if (this === e.target) {
-        document.getElementsByClassName("popupWrapper")[0].style.display = "none";
-        document.getElementsByClassName("mainContent")[0].style.filter = "none";
-        document.getElementById("addCategory").style.display = "none";
-        document.getElementById("addShortcut").style.display = "none";
-        document.getElementById("navbarContainer").style.top = "0";
+        displayPopup(false,"")
     }
 });
+
+//Function to hide/show popups
+function displayPopup(enableDisable, type) {
+    if (enableDisable) { //Enable
+        document.getElementById("popupStylesheet").disabled = false
+        for (i=0; i < document.getElementsByClassName("popupWindow").length; i++) {
+            document.getElementsByClassName("popupWindow")[i].style.display = "none";
+        }
+        document.getElementById(type).style.display = "inline";
+    } else { //Disable
+        document.getElementById("popupStylesheet").disabled = true
+    }
+}

@@ -1,0 +1,12 @@
+.popupWrapper { 
+    display: inline;
+}
+#addCategory { 
+    display: inline;
+}
+.mainContent { 
+    filter: blur(15px);
+}
+#navbarContainer { 
+    top: -110px;
+}

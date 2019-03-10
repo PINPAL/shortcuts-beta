@@ -244,6 +244,7 @@ h2 {
 }
 
 .popupWindow {
+	display: none;
 	z-index: 10001;
 	max-width: 600px;
 	padding:20px;
@@ -252,10 +253,6 @@ h2 {
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-}
-
-#addShortcut, #addCategory {
-	display: none;
 }
 
 .button {
@@ -398,4 +395,55 @@ h2 {
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 30px;
+}
+
+.popupCloseButton {
+	opacity: .7;
+	background-image: url("closeIcon.png");
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: center;
+	border-radius: 50%;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	background-color: black;
+	min-height: 40px;
+	max-height: 40px;
+	min-width: 40px;
+	max-width: 40px;
+	transition: all 0.3s ease;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+}
+
+.popupCloseButton:hover {
+	opacity: 1;
+	background-size: 30px;
+	top: 7.5px;
+	right: 7.5px;
+	min-height: 45px;
+	max-height: 45px;
+	min-width: 45px;
+	max-width: 45px;
+}
+
+::-webkit-scrollbar {
+  width: 8px; 
+	background-color: rgba(0,0,0,0);
+}
+::-webkit-scrollbar:hover {
+  background-color: rgba(255, 255, 255, .09);
+}
+::-webkit-scrollbar-thumb:vertical {
+	background: rgba(255,255,255,.1);
+	border-radius: 100px;
+  -webkit-border-radius: 100px;
+}
+::-webkit-scrollbar-thumb:vertical:active {
+	background: rgba(255,255,255,.3);
+	border-radius: 100px;
+  -webkit-border-radius: 100px;
 }

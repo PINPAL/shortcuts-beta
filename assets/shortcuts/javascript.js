@@ -55,6 +55,9 @@ function loadConfig(showeditMode) {
         if (columnForSection > 0) {
             categoryHeader.append(moveCategoryLeftButton)
         }
+        if (columnForSection == 3 || columnForSection == 0) {
+            categoryHeader.className = "categoryHeaderEdge"
+        }
         //Add category header to column
         categoryHeader.append(categoryName, deleteCategoryButton)
         document.getElementsByClassName("column")[columnForSection].appendChild(categoryHeader)

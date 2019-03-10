@@ -7,14 +7,22 @@
     padding-right: 10px;
     font-size: 12pt;
 }
+
+.editButton, .addColumnButton, .deleteCategoryButton, .moveCategoryButton {
+    display: inline;
+}
+
+.categoryHeaderEdge .categoryName {
+    max-width: calc(100% - 120px);
+}
+
 .categoryName:focus {
     background: gray !important;
-    position: absolute;
     z-index: 9999;
 	max-width: calc(100% - 20px);
 	color: black;
 }
 
-.editButton, .addColumnButton, .deleteCategoryButton, .moveCategoryButton {
-    display: inline;
+.categoryHeaderEdge #leftButton {
+	right: 50px;
 }

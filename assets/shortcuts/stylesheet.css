@@ -382,7 +382,7 @@ h2 {
 	right: 100px;
 }
 
-.categoryHeader {
+.categoryHeader, .categoryHeaderEdge {
 	max-width: calc(80% + 40px);
 	min-height: 54px;
 	max-height: 54px;

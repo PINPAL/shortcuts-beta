@@ -447,3 +447,109 @@ h2 {
 	border-radius: 100px;
   -webkit-border-radius: 100px;
 }
+
+/*Navbar edit tools*/
+.navEditMenu {
+	width: calc(100% - 40px);
+	text-align: left;
+  border-radius: 30%;
+  background-color: black;
+  box-shadow: -20px 0 30px 10px black;
+  padding-top: 20px;
+  position: absolute;
+  top: 0;
+  right: -1000px;
+  transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+}
+.miniNav .navEditMenu {
+  padding-top: 10px;
+}
+.navEditMenu .navbarSeperator {
+	margin-right: -4px;
+	margin-left: 0;
+}
+
+.normalNavbarContent {
+	position: relative;
+	top: 0;
+	right: 0;
+	transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+}
+.navIconContainer {
+	right: 0 !important;
+	top: -20px !important;
+}
+
+/* Navbar Save Changes Button */
+.applyChangesBtn {
+	float: right;
+  border: none;
+	vertical-align: middle;
+	opacity: .7;
+	background: linear-gradient(to right, #687891 , #545454);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  border-radius: 25px;
+  box-sizing: border-box;
+  padding-top: 6px;
+  padding-left: 5px;
+  color: white;
+  font-size: 16pt;
+  min-width: 40px;
+  max-width: 400px;
+  min-height: 40px;
+	max-height: 40px;
+	padding-left: 15px;
+	padding-right: 15px;
+	cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+}
+.applyChangesBtn:hover {
+	opacity: 1;
+}
+.applyChangesBtn .navButtonIcon {
+  margin-left: 0;
+  margin-right: 10px;
+}
+
+/* Navbar Edit Mode Buttons */
+.editModeNavButton {
+	margin-right: -4px;
+	border: none;
+	vertical-align: middle;
+  text-align: center;
+  box-sizing: border-box;
+  padding-top: 6px;
+  padding-left: 5px;
+  color: rgba(255,255,255,.6);
+  font-size: 16pt;
+  min-height: 40px;
+	max-height: 40px;
+	padding-left: 10px;
+	padding-right: 10px;
+	cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+}
+.editModeNavButton:hover {
+	color: white;
+	background-color: rgba(255,255,255,.2);
+}

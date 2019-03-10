@@ -26,3 +26,11 @@
 .categoryHeaderEdge #leftButton {
 	right: 50px;
 }
+
+.navEditMenu {
+    right: 20px;
+}
+.normalNavbarContent {
+    opacity: 0.5;
+    right: 1000px;
+}

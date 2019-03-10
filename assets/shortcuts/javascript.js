@@ -176,20 +176,14 @@ function shiftCategory(categoryLocation,shift) {
 }
 
 //Enable/Disable Edit Mode
-function editMode(override) { //Enable edit mode
-    if (document.getElementById("editModeButton").innerText == "Edit Page" || override) {
-        //Load edit mode stylesheet
-        var link = document.createElement('link');
-        link.rel = 'stylesheet'
-        link.type = 'text/css';
-        link.href = 'assets/shortcuts/editMode.css';
-        document.getElementsByTagName('head')[0].appendChild(link);
+function editMode(shouldEnable) { //Enable edit mode
+    if (shouldEnable) {
+        //Enable edit mode stylesheet
+        document.getElementById("editModeStylesheet").disabled = false
         //Set category names to editable (NOT read-only)
         for (i = 0; i < document.getElementsByClassName("categoryName").length; i++) {
             document.getElementsByClassName("categoryName")[i].readOnly = false
         }
-        //Set text of navbar settings button
-        document.getElementById("editModeButton").innerHTML = 'Save Changes'
     } else { //Disable edit mode
         //Reset error messages
         document.getElementsByClassName("largeErrorMessageContainer")[0].innerHTML = ""
@@ -225,17 +219,11 @@ function editMode(override) { //Enable edit mode
         //If no error messages, save changes        
         if (errorMessages == 0) {
             //Disable edit mode stylesheet
-            for (i = 0; i < document.styleSheets.length; i++) {                
-                if (document.styleSheets[i].href == window.location + 'assets/shortcuts/editMode.css') {
-                    document.styleSheets[i].disabled = true;
-                }
-            }
+            document.getElementById("editModeStylesheet").disabled = true
             //Set category names to read only
             for (i = 0; i < document.getElementsByClassName("categoryName").length; i++) {
                 document.getElementsByClassName("categoryName")[i].readOnly = true
             }
-            //Set text of navbar settings button
-            document.getElementById("editModeButton").innerHTML = 'Edit Page'
         }
         document.cookie = config
     }
@@ -418,3 +406,18 @@ function displayPopup(enableDisable, type) {
         document.getElementById("popupStylesheet").disabled = true
     }
 }
+
+//Function to backup layout
+function downloadConfig() {
+    //Export to text file
+    var element = document.createElement('a');
+    var date = new Date()
+    var date = date.getDate() + "." + date.getMonth() + "." + date.getFullYear().toString(10).substr(2,2)
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(config));
+    element.setAttribute('download', "PINPAL Shortcuts Backup (" + date + ").txt");
+    element.style.display = 'none';
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+}
+  

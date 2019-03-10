@@ -273,6 +273,8 @@ function applyAddShortcut() {
         //Hide popup
         document.getElementsByClassName("popupWrapper")[0].style.display = "none";
         document.getElementById("addShortcut").style.display = "none";
+        document.getElementsByClassName("mainContent")[0].style.filter = "none";
+        document.getElementById("navbarContainer").style.top = "0";
         //Split up config and add new sections
         var splitConfig = config.split((window.value))
         splitConfig.splice(1, 0, window.value)
@@ -336,6 +338,8 @@ function applyAddCategory() {
         //Hide popup
         document.getElementsByClassName("popupWrapper")[0].style.display = "none";
         document.getElementById("addCategory").style.display = "none";
+        document.getElementsByClassName("mainContent")[0].style.filter = "none";
+        document.getElementById("navbarContainer").style.top = "0";
         //Split up config and add new sections
         var splitConfig = [config]
         splitConfig.splice(2, 0, "#" + categoryName + "[" + window.value + "]");
@@ -385,6 +389,8 @@ function addShortcut(sectionID) {
     window.value = sectionID
     document.getElementsByClassName("popupWrapper")[0].style.display = "inline";
     document.getElementById("addShortcut").style.display = "inline";
+    document.getElementsByClassName("mainContent")[0].style.filter = "blur(15px)";
+    document.getElementById("navbarContainer").style.top = "-110px";
 }
 
 //"Add Category" Button
@@ -392,6 +398,8 @@ function addCategory(columnNumber) {
     window.value = columnNumber
     document.getElementsByClassName("popupWrapper")[0].style.display = "inline";
     document.getElementById("addCategory").style.display = "inline";
+    document.getElementsByClassName("mainContent")[0].style.filter = "blur(15px)";
+    document.getElementById("navbarContainer").style.top = "-110px";
 }
 
 //Hide popup when clicking on background ONLY (prevent propagation of onClick)
@@ -399,7 +407,9 @@ document.getElementsByClassName("popupWrapper")[0].addEventListener("click", fun
     e = window.event || e;
     if (this === e.target) {
         document.getElementsByClassName("popupWrapper")[0].style.display = "none";
+        document.getElementsByClassName("mainContent")[0].style.filter = "none";
         document.getElementById("addCategory").style.display = "none";
         document.getElementById("addShortcut").style.display = "none";
+        document.getElementById("navbarContainer").style.top = "0";
     }
 });

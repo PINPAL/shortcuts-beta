@@ -9,84 +9,85 @@
     <link rel="stylesheet" type="text/css" href="assets/global-navbar/navbar.css">
 </head>
 <body>
-
-    <div id="navbarContainer">
-            <div id="navbar">
-                    <a href="https://pinpal.github.io/"><img class="logo" src="assets/pinpal.png"></a>
-                    <a href="https://pinpal.github.io/"><span id="title">PINPAL</span></a>
-        
-                <div class="navIconContainer">
-        
-                    <form method="get" action="http://www.google.com/search" style="display:inline-block">
-                        <input type="text" class="popupTextField" name="q" placeholder="Search" class="navbarSearch">
-                        <button type="submit" style="padding:0;margin:0;background:none;border:none;">
-                            <div class="navButton" style="background: linear-gradient(to right, #15a55d , #14d179)">
-                                <img src="assets/page-icons/search.png" class="navButtonIcon" align="left">Search
-                            </div>
-                        </button>
-                    </form>
-        
-                    <a href="https://twitter.com/TPINPAL">
-                        <div class="navButton" style="background: linear-gradient(to right, #55ACEF , #0A76E7)">
-                        <img src="assets/page-icons/twitter.png" class="navButtonIcon" align="left">Twitter
-                    </div></a>
-                
-                    <a href="https://github.com/PINPAL">
-                        <div class="navButton" style="background: linear-gradient(to right, #AA4DB4 , #8A3699)">
-                        <img src="assets/page-icons/github.png" class="navButtonIcon" align="left">Github
-                    </div></a>
-        
-                    <a href="https://discordapp.com/invite/jb">
-                        <div class="navButton" style="background: linear-gradient(to right, #83A1DA , #6380B4)">
-                        <img src="assets/page-icons/discord.png" class="navButtonIcon" align="left">Discord
-                    </div></a>
-        
-                    <a href="https://www.reddit.com/user/THE_PINPAL614">
-                        <div class="navButton" style="background: linear-gradient(to right, #FF4C02 , #ED0A21)">
-                        <img src="assets/page-icons/reddit.png" class="navButtonIcon" align="left">Reddit
-                    </div></a>
-
-                    <div class="navbarSeperator">.</div>
-
-                    <div class="navButton" style="background: linear-gradient(to right, #687891 , #545454)" onclick="editMode(false)">
-                    <img src="assets/page-icons/settings.png" class="navButtonIcon" align="left"><span id="editModeButton">Edit Page</span>
-                    </div>
-        
-                </div>
-
+    <div class="popupWrapper">
+            <div class="popupWindow" id="addShortcut">
+                <h1 style="font-size: 26pt;">Add Shortcut Link</h1>
+                <h2>Enter the Title of the Shortcut:</h2>
+                <p>This is the name that will be displayed.</p>
+                <input type="text" class="popupTextField" style="width: 100%;" id="linkTitleHolder" placeholder="Link Title">
+                <h2>Enter the URL of the Shortcut:</h2>
+                <p>This is the URL the link will go to.</p>
+                <input type="text" class="popupTextField" style="width: 100%;" id="linkURLHolder" placeholder="Link URL">
+                <h2>Enter the URL of the Shortcut Icon:</h2>
+                <p>This is will make your shortcut pretty.</p>
+                <input type="text" class="popupTextField" style="width: 100%;" id="linkIconHolder" placeholder="Icon URL (Optional)">
+                <div class="errorMessageContainer"></div>
+                <button class="button" onclick="applyAddShortcut()">Apply Changes</button>
+            </div>
+            <div class="popupWindow" id="addCategory">
+                <h1 style="font-size: 26pt;">Add Category</h1>
+                <h2>Enter the Title of the Category:</h2>
+                <p>This is the large name above that will be displayed.</p>
+                <input type="text" class="popupTextField" style="width: 100%;" id="categoryName" placeholder="Category Name">
+                <div class="errorMessageContainer"></div>
+                <button class="button" onclick="applyAddCategory()">Apply Changes</button>
             </div>
         </div>
-    
-    <div class="wrapper">
-        <div class="largeErrorMessageContainer"></div>
-        <div class="column"></div>
-        <div class="column"></div>
-        <div class="column"></div>
-        <div class="column"></div>
-    </div>
 
-    <div class="popupWrapper">
-        <div class="popupWindow" id="addShortcut">
-            <h1 style="font-size: 26pt;">Add Shortcut Link</h1>
-            <h2>Enter the Title of the Shortcut:</h2>
-            <p>This is the name that will be displayed.</p>
-            <input type="text" class="popupTextField" style="width: 100%;" id="linkTitleHolder" placeholder="Link Title">
-            <h2>Enter the URL of the Shortcut:</h2>
-            <p>This is the URL the link will go to.</p>
-            <input type="text" class="popupTextField" style="width: 100%;" id="linkURLHolder" placeholder="Link URL">
-            <h2>Enter the URL of the Shortcut Icon:</h2>
-            <p>This is will make your shortcut pretty.</p>
-            <input type="text" class="popupTextField" style="width: 100%;" id="linkIconHolder" placeholder="Icon URL (Optional)">
-            <div class="errorMessageContainer"></div>
-            <button class="button" onclick="applyAddShortcut()">Apply Changes</button>
-        </div>
-        <div class="popupWindow" id="addCategory">
-            <h1 style="font-size: 26pt;">Add Category</h1>
-            <h2>Enter the Title of the Category:</h2>
-            <p>This is the large name above that will be displayed.</p>
-            <input type="text" class="popupTextField" style="width: 100%;" id="categoryName" placeholder="Category Name">
-            <div class="errorMessageContainer"></div>
-            <button class="button" onclick="applyAddCategory()">Apply Changes</button>
+    <div class="mainContent">
+        <div id="navbarContainer">
+                <div id="navbar">
+                        <a href="https://pinpal.github.io/"><img class="logo" src="assets/pinpal.png"></a>
+                        <a href="https://pinpal.github.io/"><span id="title">PINPAL</span></a>
+            
+                    <div class="navIconContainer">
+            
+                        <form method="get" action="http://www.google.com/search" style="display:inline-block">
+                            <input type="text" class="popupTextField" name="q" placeholder="Search" class="navbarSearch">
+                            <button type="submit" style="padding:0;margin:0;background:none;border:none;">
+                                <div class="navButton" style="background: linear-gradient(to right, #15a55d , #14d179)">
+                                    <img src="assets/page-icons/search.png" class="navButtonIcon" align="left">Search
+                                </div>
+                            </button>
+                        </form>
+            
+                        <a href="https://twitter.com/TPINPAL">
+                            <div class="navButton" style="background: linear-gradient(to right, #55ACEF , #0A76E7)">
+                            <img src="assets/page-icons/twitter.png" class="navButtonIcon" align="left">Twitter
+                        </div></a>
+                    
+                        <a href="https://github.com/PINPAL">
+                            <div class="navButton" style="background: linear-gradient(to right, #AA4DB4 , #8A3699)">
+                            <img src="assets/page-icons/github.png" class="navButtonIcon" align="left">Github
+                        </div></a>
+            
+                        <a href="https://discordapp.com/invite/jb">
+                            <div class="navButton" style="background: linear-gradient(to right, #83A1DA , #6380B4)">
+                            <img src="assets/page-icons/discord.png" class="navButtonIcon" align="left">Discord
+                        </div></a>
+            
+                        <a href="https://www.reddit.com/user/THE_PINPAL614">
+                            <div class="navButton" style="background: linear-gradient(to right, #FF4C02 , #ED0A21)">
+                            <img src="assets/page-icons/reddit.png" class="navButtonIcon" align="left">Reddit
+                        </div></a>
+
+                        <div class="navbarSeperator">.</div>
+
+                        <div class="navButton" style="background: linear-gradient(to right, #687891 , #545454)" onclick="editMode(false)">
+                        <img src="assets/page-icons/settings.png" class="navButtonIcon" align="left"><span id="editModeButton">Edit Page</span>
+                        </div>
+            
+                    </div>
+
+                </div>
+            </div>
+        
+        <div class="wrapper">
+            <div class="largeErrorMessageContainer"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
         </div>
     </div>
 

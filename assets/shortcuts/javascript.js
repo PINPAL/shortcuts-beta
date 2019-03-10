@@ -387,9 +387,11 @@ function addCategory(columnNumber) {
 
 //Hide popup when clicking on background ONLY (prevent propagation of onClick)
 document.getElementsByClassName("popupWrapper")[0].addEventListener("click", function (e) {
-    e = window.event || e;
-    if (this === e.target) {
-        displayPopup(false,"")
+    if (window.innerWidth < 850) { //Prevent closing of resolution error popup
+        e = window.event || e;
+        if (this === e.target) {
+            displayPopup(false,"")
+        }
     }
 });
 
@@ -446,6 +448,15 @@ function uploadText() {
         document.body.appendChild(uploader)
         uploader.click()
     })
+}
+
+//Error if resolution too small
+window.onresize = function(event) {
+    if (window.innerWidth < 850) {
+        displayPopup(true,"resolutionTooSmall")
+    } else {
+        displayPopup(false,"")
+    }
 }
 
 //Import Config

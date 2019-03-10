@@ -49,7 +49,8 @@ body {
 }
 
 .bigBox, .popupWindow {
-	width: 80%;
+	width: calc(100% - 10px);
+	box-sizing: border-box;
 	background: #2F3439;
 	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
 	text-align: left;
@@ -188,8 +189,6 @@ a {
 	font-size: 20px;
 	border: none;
 	margin-right: 5px;
-	height: 100%;
-	max-height: 36px;
 	border-style: solid;
 	border-color: rgba(255, 255, 255, 0.05);
 	border-width: 2px;
@@ -214,14 +213,7 @@ a {
 	border-color: rgba(255, 255, 255, 0.15);
   }
   
-  /*Hide search buttons at low resolutions*/
-  @media screen and (max-width: 700px) {
-	  input[type=text] {
-		  display: none;
-	  }
-  }
-
-  /*Wrapper*/
+/*Wrapper*/
 .wrapper {
 		width: calc(100%-20px);
     max-width: 1500px;

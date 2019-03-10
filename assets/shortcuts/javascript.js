@@ -1,19 +1,11 @@
-//Function to load text files
-function loadFile(filename) {
-    if (window.XMLHttpRequest) { xhttp = new XMLHttpRequest(); }
-    else // code for IE5 and IE6
-    { xhttp = new ActiveXObject("Microsoft.XMLHTTP"); }
-    xhttp.open("GET", filename, false);
-    xhttp.send();
-    return xhttp.responseText;
-}
-
 //Load config 
-var config = loadFile("config.txt").replace(/\r?\n|\r/g, "")
 loadConfig(false)
+console.log(document.cookie)
 
 //Function to render
 function loadConfig(showeditMode) {
+    //Load config from cookie
+    config = document.cookie
     //Clear old columns
     for (i = 0; i < document.getElementsByClassName("column").length; i++) {
         document.getElementsByClassName("column")[i].innerHTML = "";
@@ -22,7 +14,7 @@ function loadConfig(showeditMode) {
     var categories = config.split("#")
     for (i = 1; i < categories.length; i++) {
         //Split up category into title, links and header
-        section = categories[i].split(";");
+        section = categories[i].split("•");
         //Create category header (contains title/delete button etc)
         var categoryHeader = document.createElement("div")
         categoryHeader.className = "categoryHeader"
@@ -130,7 +122,7 @@ function deleteCategory(categoryLocation) {
     categories.splice(0,1)
     for (i = 0; i < categories.length; i++) {
         //Split up category into title, links and header
-        section = categories[i].split(";");
+        section = categories[i].split("•");
         //Find and delete section
         if (section[0].replace(/\[.\]/, "") == categoryLocation.parentNode.id) {
             categories.splice(i,1)
@@ -141,6 +133,7 @@ function deleteCategory(categoryLocation) {
     for (i = 0; i < categories.length; i++) {
         config = config + ";#" + categories[i]
     }
+    document.cookie = config
     loadConfig(true)
 }
 
@@ -152,7 +145,7 @@ function shiftCategory(categoryLocation,shift) {
     categories.splice(0,1)
     for (i = 0; i < categories.length; i++) {
         //Split up category into title, links and header
-        section = categories[i].split(";");
+        section = categories[i].split("•");
         //Find section
         if (section[0].replace(/\[.\]/, "") == categoryLocation.parentNode.id) {
             //Calculate new column
@@ -163,7 +156,7 @@ function shiftCategory(categoryLocation,shift) {
                 //Combine section and put back into categories
                 categories[i] = ""
                 for (j = 0; j < section.length - 1; j++) {
-                    categories[i] = categories[i] + section[j] + ";"
+                    categories[i] = categories[i] + section[j] + "•"
                 }
         }
     }
@@ -172,6 +165,7 @@ function shiftCategory(categoryLocation,shift) {
     for (i = 0; i < categories.length; i++) {
         config = config + "#" + categories[i]
     }
+    document.cookie = config
     loadConfig(true)
 }
 
@@ -199,7 +193,7 @@ function editMode(override) { //Enable edit mode
             if (isNameInvalid(document.getElementsByClassName("categoryName")[i].value)[0]) {
                 errorMessages.push("Error: Category name must not be empty!")
             }
-            //Remove hashtags and semi-colons from name
+            //Remove hashtags and bullet points from name
             document.getElementsByClassName("categoryName")[i].value =  isNameInvalid(document.getElementsByClassName("categoryName")[i].value)[1]
         }
         //Split up config into categories
@@ -207,7 +201,7 @@ function editMode(override) { //Enable edit mode
         for (i = 0; i < document.getElementsByClassName("categoryName").length; i++) {
             for (j = 0; j < categories.length; j++) {
                 //Split up category into title, links and header
-                section = categories[j].split(";");
+                section = categories[j].split("•");
             }
         }
         //Validate changed names of categories are not already in use
@@ -237,6 +231,7 @@ function editMode(override) { //Enable edit mode
             //Set text of navbar settings button
             document.getElementById("editModeButton").innerHTML = 'Edit Page'
         }
+        document.cookie = config
     }
 }
 
@@ -253,7 +248,7 @@ function applyAddShortcut() {
     if (isNameInvalid(linkTitle)[0]) {
         errorMessages.push("Error: Link Title must not be empty!")
     }
-    //Remove hashtags and semi-colons from name
+    //Remove hashtags and bullet points from name
     linkTitle = isNameInvalid(linkTitle)[1]
     //URL validation
     var validURL = /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/ig
@@ -264,7 +259,7 @@ function applyAddShortcut() {
     if (linkIcon == "") {
         linkIcon = "assets/shortcuts/genericIcon.png"
     }
-    //Remove hashtags and semi-colons from URL and Icon
+    //Remove hashtags and bullet points from URL and Icon
     linkURL = isNameInvalid(linkURL)[1]
     linkIcon = isNameInvalid(linkIcon)[1]
     //Display error messages
@@ -283,13 +278,14 @@ function applyAddShortcut() {
         //Split up config and add new sections
         var splitConfig = config.split((window.value))
         splitConfig.splice(1, 0, window.value)
-        splitConfig.splice(2, 0, ";" + linkTitle + ";" + linkURL + ";" + linkIcon)
+        splitConfig.splice(2, 0, "•" + linkTitle + "•" + linkURL + "•" + linkIcon)
         //Merge split config back into one
         config = ""
         for (i = 0; i < splitConfig.length; i++) {
             config = config + splitConfig[i]
         }
         //Display new config
+        document.cookie = config
         loadConfig(true)
     }
 }
@@ -297,7 +293,7 @@ function applyAddShortcut() {
 //Function to validate names (works for both links/categories)
 function isNameInvalid(name) {
     //Replace hashtags and semi-colons in name
-    name = name.replace(/#|;/g,"")
+    name = name.replace(/#|•/g,"")
     //Validate name is not blank
     if (name == "") {
         return [true, name]
@@ -323,7 +319,7 @@ function applyAddCategory() {
     var categories = config.split("#")
     for (j=0; j < categories.length; j++) {
         //Split up category into title, links and header
-        section = categories[j].split(";");
+        section = categories[j].split("•");
         //Validate name of new category is not already in use
         if (categoryName == section[0].replace(/\[.\]/,"")) {
             errorMessages.push("Error: Category name must not already be in use!")
@@ -351,6 +347,7 @@ function applyAddCategory() {
             config = config + splitConfig[i]
         }
         //Display new config
+        document.cookie = config
         loadConfig(true)
     }
 }

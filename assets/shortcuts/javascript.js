@@ -137,9 +137,11 @@ function editMode(override) { //Enable edit mode
         var errorMessages = [];
         //Validate changed names of categories are not blank
         for (i = 0; i < document.getElementsByClassName("categoryName").length; i++) {
-            if (document.getElementsByClassName("categoryName")[i].value == "") {
+            if (isNameInvalid(document.getElementsByClassName("categoryName")[i].value)[0]) {
                 errorMessages.push("Error: Category name must not be empty!")
             }
+            //Remove hashtags and semi-colons from name
+            document.getElementsByClassName("categoryName")[i].value =  isNameInvalid(document.getElementsByClassName("categoryName")[i].value)[1]
         }
         //Split up config into categories
         var categories = config.split("#")
@@ -189,14 +191,19 @@ function applyAddShortcut() {
     linkURL = document.getElementById("linkURLHolder").value
     linkIcon = document.getElementById("linkIconHolder").value
     //Title validation
-    if (linkTitle == "") {
-        errorMessages.push("Error: Link title must not be empty!")
+    if (isNameInvalid(linkTitle)[0]) {
+        errorMessages.push("Error: Link Title must not be empty!")
     }
+    //Remove hashtags and semi-colons from name
+    linkTitle = isNameInvalid(linkTitle)[1]
     //URL validation
     var validURL = /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/ig
     if (validURL.test(linkURL) == false) {
         errorMessages.push("Error: Link URL is not a valid URL!")
     }
+    //Remove hashtags and semi-colons from URL and Icon
+    linkURL = isNameInvalid(linkURL)[1]
+    linkIcon = isNameInvalid(linkIcon)[1]
     //Display error messages
     for (i = 0; i < errorMessages.length; i++) {
         errorMesssageBox = document.createElement("div")
@@ -224,6 +231,18 @@ function applyAddShortcut() {
     }
 }
 
+//Function to validate names (works for both links/categories)
+function isNameInvalid(name) {
+    //Replace hashtags and semi-colons in name
+    name = name.replace(/#|;/g,"")
+    //Validate name is not blank
+    if (name == "") {
+        return [true, name]
+    } else {
+        return [false, name]
+    }
+}
+
 //Apply Changes ("Add Category")
 function applyAddCategory() {
     //Reset Error Messages
@@ -231,10 +250,12 @@ function applyAddCategory() {
     var errorMessages = [];
     //Get content of form
     var categoryName = document.getElementById("categoryName").value
-    //Validate cateogory name is not blank
-    if (categoryName == "") {
+    //Validate category name
+    if (isNameInvalid(categoryName)[0]) {
         errorMessages.push("Error: Category name must not be empty!")
     }
+    //Remove hashtags and semi-colons from name
+    categoryName = isNameInvalid(categoryName)[1]
     //Split up config into categories
     var categories = config.split("#")
     for (j=0; j < categories.length; j++) {

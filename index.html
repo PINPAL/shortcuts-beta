@@ -15,13 +15,13 @@
             <div class="popupWindow" id="addShortcut">
                 <div class="popupCloseButton" onClick="displayPopup(false,'')"></div>
                 <h1 style="font-size: 26pt;">Add Shortcut Link</h1>
-                <h2>Enter the Title of the Shortcut:</h2>
+                <h2>Enter the Title of the Shortcut</h2>
                 <p>This is the name that will be displayed.</p>
                 <input type="text" class="popupTextField" style="width: 100%;" id="linkTitleHolder" placeholder="Link Title">
-                <h2>Enter the URL of the Shortcut:</h2>
+                <h2>Enter the URL of the Shortcut</h2>
                 <p>This is the URL the link will go to.</p>
                 <input type="text" class="popupTextField" style="width: 100%;" id="linkURLHolder" placeholder="Link URL">
-                <h2>Enter the URL of the Icon:</h2>
+                <h2>Enter the URL of the Icon</h2>
                 <p>This will make your shortcut pretty.</p>
                 <input type="text" class="popupTextField" style="width: 100%;" id="linkIconHolder" placeholder="Icon URL (Optional)">
                 <div class="errorMessageContainer"></div>
@@ -57,27 +57,65 @@
                 <p>You can load your backup that you created to restore a previous layout.</p>
                 <button class="button" onclick="importConfig()">Upload Config</button>
             </div>
-            <div class="popupWindow" id="customize">
-                    <div class="popupCloseButton" onClick="displayPopup(false,'')"></div>
-                    <h1 style="font-size: 26pt;">Customize</h1>
-                    <h2>Background Color:</h2>
+            <div class="popupWindow" id="customize" style="max-width: 1230px;">
+                <div class="popupCloseButton" onClick="displayPopup(false,'')"></div>
+                <h1 style="font-size: 26pt;">Customize</h1>
+                <div class="dualColumn" style="padding-right: 15px;"">
+                    <h2>Background Color</h2>
                     <p>The background color of the page. Accepts Hex value</p>
                     <input type="text" class="popupTextField" style="width: 100%;" id="customizeBackgroundColor" placeholder="#00000">
-                    <h2>Box Color:</h2>
+                    <h2>Box Color</h2>
                     <p>The color of the link boxes. Accepts Hex value</p>
                     <input type="text" class="popupTextField" style="width: 100%;" id="customizeBoxColor" placeholder="#00000">
-                    <h2>Link Title Color:</h2>
-                    <p>The color of the title of links in the boxes.</p>
+                    <h2>Link Title Color</h2>
+                    <p>The color of the title of links in the boxes. Accepts Hex value</p>
                     <input type="text" class="popupTextField" style="width: 100%;" id="customizeLinkColor" placeholder="#00000">
-                    <h2>Link URL Color:</h2>
-                    <p>The color of the link URL in the boxes.</p>
+                    <h2>Link URL Color</h2>
+                    <p>The color of the link URL in the boxes. Accepts Hex value</p>
                     <input type="text" class="popupTextField" style="width: 100%;" id="customizeURLColor" placeholder="#00000">
                     <h2>Category Title Color:</h2>
-                    <p>The color of the large titles above categories.</p>
+                    <p>The color of the large titles above categories. Accepts Hex value</p>
                     <input type="text" class="popupTextField" style="width: 100%;" id="customizeSubtitleColor" placeholder="#00000">
+                </div><div class="dualColumn" style="border-left: solid;border-color:rgba(255,255,255,.1);border-width: 2px;padding-left: 15px;">
+                    <h2>Navbar Colour:</h2>
+                    <p>The background color of the navbar. Accepts Hex value</p>
+                    <input type="text" class="popupTextField" style="width: 100%;" id="navbarBackgroundColor" placeholder="#00000">
+                    <h2>Enable Branding</h2>
+                    <p>Show the PINPAL branding on the top of the navbar.</p>
+                    <div class="toggleSwitch" id="enableBranding">
+                        <div class="dualColumn" style="text-align: center" >
+                            <div class="toggleSwitchEnable" style="background-color: rgba(200,200,255,0.2);color:white;" id="enableBranding">Enabled</div>
+                        </div>
+                        <div class="dualColumn" style="text-align: center">
+                            <div class="toggleSwitchDisable" id="enableBranding">Disabled</div>
+                        </div>
+                    </div>
+                    <h2>Enable Social Links</h2>
+                    <p>Show the PINPAL social buttons on the navbar.</p>
+                    <div class="toggleSwitch" id="enableSocials">
+                        <div class="dualColumn" style="text-align: center" >
+                            <div class="toggleSwitchEnable" style="background-color: rgba(200,200,255,0.2);color:white;" id="enableSocials">Enabled</div>
+                        </div>
+                        <div class="dualColumn" style="text-align: center">
+                            <div class="toggleSwitchDisable" id="enableSocials">Disabled</div>
+                        </div>
+                    </div>
+                    <h2>Enable Icons</h2>
+                    <p>Show the icons on the side of the links</p>
+                    <div class="toggleSwitch" id="enableIcons">
+                        <div class="dualColumn" style="text-align: center" >
+                            <div class="toggleSwitchEnable" style="background-color: rgba(200,200,255,0.2);color:white;" id="enableIcons">Enabled</div>
+                        </div>
+                        <div class="dualColumn" style="text-align: center">
+                            <div class="toggleSwitchDisable" id="enableIcons">Disabled</div>
+                        </div>
+                    </div>
                     <div class="errorMessageContainer"></div>
-                    <button class="button" style="background: rgba(255, 255, 255, 0.3);color: rgba(0,0,0,.7)">Coming Soon...</button>
+                    <button class="button" style="background: rgba(255, 255, 255, 0.3);color: rgba(0,0,0,.7);margin-top: 70px;" >
+                        <strike style="color: rgba(0,0,0,.7)">Apply Changes</strike> Coming Soon...
+                    </button>
                 </div>
+            </div>
         </div>
 
     <div class="mainContent">

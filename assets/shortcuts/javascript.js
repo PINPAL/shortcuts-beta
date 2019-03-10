@@ -26,6 +26,7 @@ function loadConfig(showeditMode) {
         //Create category header (contains title/delete button etc)
         var categoryHeader = document.createElement("div")
         categoryHeader.className = "categoryHeader"
+        categoryHeader.id = section[0].replace(/\[.\]/, "")
         //Create the category name title
         var categoryName = document.createElement("input");
         categoryName.value = section[0].replace(/\[.\]/, "")
@@ -37,6 +38,7 @@ function loadConfig(showeditMode) {
         //Create the "Delete Category" button
         var deleteCategoryButton = document.createElement("div")
         deleteCategoryButton.className = "deleteCategoryButton"
+        deleteCategoryButton.setAttribute("onClick","deleteCategory(this)")
         //Add category header to column
         categoryHeader.append(categoryName, deleteCategoryButton)
         document.getElementsByClassName("column")[columnForSection].appendChild(categoryHeader);
@@ -101,19 +103,26 @@ function loadConfig(showeditMode) {
     }
 }
 
-
-//Function to hide/show all elements of a class
-function showHideElement(className, showHide) {
-    var elements = document.getElementsByClassName(className);
-    if (showHide == true) {
-        for (i = 0; i < elements.length; i++) {
-            elements[i].style.display = "inline";
-        }
-    } else {
-        for (i = 0; i < elements.length; i++) {
-            elements[i].style.display = "none";
+//Delete Category Button
+function deleteCategory(categoryLocation) {
+    //Split up config into categories
+    var categories = config.split("#")
+    //Remove blank category
+    categories.splice(0,1)
+    for (i = 0; i < categories.length; i++) {
+        //Split up category into title, links and header
+        section = categories[i].split(";");
+        //Find and delete section
+        if (section[0].replace(/\[.\]/, "") == categoryLocation.parentNode.id) {
+            categories.splice(i,1)
         }
     }
+    //Combine categories and put it back into config
+    config = ""
+    for (i = 0; i < categories.length; i++) {
+        config = config + ";#" + categories[i]
+    }
+    loadConfig(true)
 }
 
 //Enable/Disable Edit Mode

@@ -147,9 +147,9 @@ function editMode(override) { //Enable edit mode
             for (j = 0; j < categories.length; j++) {
                 //Split up category into title, links and header
                 section = categories[j].split(";");
-                //Validate changed names of categories are not already in use
             }
         }
+        //Validate changed names of categories are not already in use
         if (sameName(valueExtract())==false) {
             errorMessages.push("Error: Category name must not already be in use!")
         }
@@ -231,9 +231,19 @@ function applyAddCategory() {
     var errorMessages = [];
     //Get content of form
     var categoryName = document.getElementById("categoryName").value
-    //Category name validation
+    //Validate cateogory name is not blank
     if (categoryName == "") {
         errorMessages.push("Error: Category name must not be empty!")
+    }
+    //Split up config into categories
+    var categories = config.split("#")
+    for (j=0; j < categories.length; j++) {
+        //Split up category into title, links and header
+        section = categories[j].split(";");
+        //Validate name of new category is not already in use
+        if (categoryName == section[0].replace(/\[.\]/,"")) {
+            errorMessages.push("Error: Category name must not already be in use!")
+        }
     }
     //Display error messages
     for (i = 0; i < errorMessages.length; i++) {
@@ -261,6 +271,7 @@ function applyAddCategory() {
     }
 }
 
+//Function to check that names are not in use
 function sameName(values) {
     //gets array of all unique values
     distinctValues = [...new Set(values)]
@@ -271,6 +282,7 @@ function sameName(values) {
     else{return false;}
 }
 
+//Function to extract values of categories (for use in validation)
 function valueExtract(){
     //Difines array of input tag values
     var allDemvalues =[];

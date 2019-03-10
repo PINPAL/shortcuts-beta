@@ -61,7 +61,7 @@ function loadConfig(showeditMode) {
             //Create the link URL
             var linkURL = document.createElement("span");
             linkURL.className = "linkURL"
-            linkURL.innerText = section[j + 1].replace(/^((https?:|)\/\/www\.)|www\./, "")
+            linkURL.innerText = section[j + 1].replace(/(.*?:\/\/)|(www\.)/g, "")
             //Add link and title into the row
             rowContent.appendChild(linkTitle)
             rowContent.appendChild(linkURL)

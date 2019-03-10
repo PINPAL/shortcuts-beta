@@ -1,7 +1,16 @@
+function loadFile(filename) {
+    if (window.XMLHttpRequest) { xhttp = new XMLHttpRequest(); }
+    else // code for IE5 and IE6
+    { xhttp = new ActiveXObject("Microsoft.XMLHTTP"); }
+    xhttp.open("GET", filename, false);
+    xhttp.send();
+    return xhttp.responseText;
+}
+
+document.cookie = loadFile("config.txt").replace(/\r?\n|\r/g, "")
+console.log(document.cookie)
 //Load config 
 loadConfig(false)
-console.log(document.cookie)
-
 //Function to render
 function loadConfig(showeditMode) {
     //Load config from cookie
@@ -131,7 +140,7 @@ function deleteCategory(categoryLocation) {
     //Combine categories and put it back into config
     config = ""
     for (i = 0; i < categories.length; i++) {
-        config = config + ";#" + categories[i]
+        config = config + "•#" + categories[i]
     }
     document.cookie = config
     loadConfig(true)

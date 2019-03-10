@@ -40,20 +40,23 @@ function loadConfig(showeditMode) {
         deleteCategoryButton.className = "deleteCategoryButton"
         deleteCategoryButton.setAttribute("onClick","deleteCategory(this)")
         //Create right move category buttons
-        console.log(section[0], columnForSection)
+        var moveCategoryRightButton = document.createElement("div")
+        moveCategoryRightButton.className = "moveCategoryButton"
+        moveCategoryRightButton.id = "rightButton"
+        moveCategoryRightButton.setAttribute("onClick","shiftCategory(this,1)")
         if (columnForSection < 3) {
-            var moveCategoryRightButton = document.createElement("div")
-            moveCategoryRightButton.className = "moveCategoryButton"
-            moveCategoryRightButton.id = "rightButton"
-            moveCategoryRightButton.setAttribute("onClick","shiftCategory(this,1)")
+            categoryHeader.append(moveCategoryRightButton)
         }
         //Create left move category buttons
         var moveCategoryLeftButton = document.createElement("div")
         moveCategoryLeftButton.className = "moveCategoryButton"
         moveCategoryLeftButton.id = "leftButton"
         moveCategoryLeftButton.setAttribute("onClick","shiftCategory(this,-1)")
+        if (columnForSection > 0) {
+            categoryHeader.append(moveCategoryLeftButton)
+        }
         //Add category header to column
-        categoryHeader.append(categoryName, moveCategoryLeftButton, moveCategoryRightButton, deleteCategoryButton)
+        categoryHeader.append(categoryName, deleteCategoryButton)
         document.getElementsByClassName("column")[columnForSection].appendChild(categoryHeader)
         //Create the bigbox
         var bigBox = document.createElement("div");

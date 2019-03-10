@@ -136,10 +136,22 @@ function editMode(override) { //Enable edit mode
         //Reset error messages
         document.getElementsByClassName("largeErrorMessageContainer")[0].innerHTML = ""
         var errorMessages = [];
-        //Validate changed names of categories
+        //Validate changed names of categories are not blank
         for (i=0; i < document.getElementsByClassName("categoryName").length; i++) {
             if (document.getElementsByClassName("categoryName")[i].value == "") {
                 errorMessages.push("Error: Category name must not be empty!")
+            }
+        }
+        //Split up config into categories
+        var categories = config.split("#")
+        for (i=0; i < document.getElementsByClassName("categoryName").length; i++) {
+            for (j=0; j < categories.length; j++) {
+                //Split up category into title, links and header
+                section = categories[j].split(";");
+                //Validate changed names of categories are not already in use
+                if (document.getElementsByClassName("categoryName")[i].value == section[0].replace(/\[.\]/,"")) {
+                    errorMessages.push("Error: Category name must not already be in use!")
+                }
             }
         }
         //Display error messages

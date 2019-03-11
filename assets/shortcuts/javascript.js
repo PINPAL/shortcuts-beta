@@ -126,7 +126,6 @@ function deleteRow(rowForDeletion) {
 
 //Confirm delete row
 function confirmDeleteRow(categoryOfRow, linkTitle,linkURL,linkIcon) {
-    console.log(categoryOfRow + "/" + linkTitle + "/" + linkURL + "/" + linkIcon)
     //Split up config into categories
     var categories = config.split("#")
     //Remove blank category
@@ -138,11 +137,27 @@ function confirmDeleteRow(categoryOfRow, linkTitle,linkURL,linkIcon) {
         if (section[0] == categoryOfRow) {
             for (j = 0; j < section.length; j++) {
                 if (section[j] == linkTitle && section[j+1].replace(/(.*?:\/\/)|(www\.)/g, "") == linkURL && section[j+2] == linkIcon) {
-                    console.log(section[j] + "/" + section[j+1] + "/" + section[j+2])
+                    section.splice(j,3)
+                }
+            }
+            //Rebuild category from modified section
+            categories[i] = ""
+            for (j = 0; j < section.length; j++) {
+                if (section[j] != "") {
+                    categories[i] = categories[i] + section[j] + "•"
                 }
             }
         }
     }
+    //Combine categories and put it back into config
+    config = ""
+    for (i = 0; i < categories.length; i++) {
+        config = config + "#" + categories[i]
+    }
+    //Save config and exit popup
+    displayPopup(false,"")
+    createCookie("config",config,999)
+    loadConfig(true)
 }
 
 //Delete category button
@@ -172,6 +187,7 @@ function confirmDeleteCategory(categoryForDeletion) {
     for (i = 0; i < categories.length; i++) {
         config = config + "#" + categories[i]
     }
+    //Save config and exit popup
     displayPopup(false,"")
     createCookie("config",config,999)
     loadConfig(true)

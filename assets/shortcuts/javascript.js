@@ -4,7 +4,6 @@ loadConfig(false)
 function loadConfig(showeditMode) {
     //Load config from cookie
     config = readCookie("config")
-    console.log(config)
     //Clear old columns
     for (i = 0; i < document.getElementsByClassName("column").length; i++) {
         document.getElementsByClassName("column")[i].innerHTML = "";
@@ -144,10 +143,10 @@ function confirmDeleteRow(categoryOfRow, linkTitle,linkURL,linkIcon) {
             //Rebuild category from modified section
             categories[i] = ""
             for (j = 0; j < section.length; j++) {
-                if (j == 0) {
-                    categories[i] = categories[i] + section[j]
-                } else if (section[j] != "") {
+                if (section[j] != "" && section[j+1] != "") {
                     categories[i] = categories[i] + section[j] + "•"
+                } else {
+                    categories[i] = categories[i] + section[j]
                 }
             }
         }

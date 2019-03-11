@@ -357,7 +357,7 @@ function applyAddShortcut() {
 //Function to validate names (works for both links/categories)
 function isNameInvalid(name) {
     //Replace hashtags and semi-colons in name
-    name = name.replace(/#|•/g,"")
+    name = name.replace(/#|•|'|"|;/g,"")
     //Validate name is not blank
     if (name == "") {
         return [true, name]

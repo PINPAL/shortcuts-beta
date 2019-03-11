@@ -8,7 +8,7 @@
     font-size: 12pt;
 }
 
-.editButton, .addColumnButton, .deleteCategoryButton, .moveCategoryButton {
+.editButton, .addColumnButton, .deleteCategoryButton, .moveCategoryButton, .deleteRowButton {
     display: inline;
 }
 
@@ -33,4 +33,11 @@
 .normalNavbarContent {
     opacity: 0.5;
     right: 1000px;
+}
+
+.tableRow:hover {
+    background-color: #b53d3d;
+    background-image: url("delete.png") !important;
+    background-size: 32px;
+    background-position-x: 26px;
 }

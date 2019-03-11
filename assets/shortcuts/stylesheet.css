@@ -56,15 +56,13 @@ body {
 }
 
 .bigBox, .popupWindow {
+	overflow: hidden;
 	width: calc(100% - 10px);
 	box-sizing: border-box;
 	background: #2F3439;
 	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
 	text-align: left;
 	border-radius: 25px;
-	padding-top: 10px;
-	padding-left: 20px;
-	padding-right: 20px;
 	margin-top: 10px;
 	margin-bottom: 30px;
 	margin-left: auto;
@@ -90,23 +88,27 @@ body {
 	max-height: 15px;
 }
 .tableRow {
+	position: relative;
 	background-size: 42px;
 	background-repeat: no-repeat;
 	background-position-y: center;
-	padding-left: 58px;
+	background-position-x: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 78px;
+	padding-right: 20px;
 	min-height: 50px;
 	vertical-align: middle;
-	margin-bottom: 10px;
 	overflow: hidden;
 }
 
 /*Fancy Animation for rows of apps*/
 .tableRow:hover {
-	padding-top: 15px;
-	padding-bottom: 15px;
+	padding-top: 25px;
+	padding-bottom: 25px;
 	min-height: 65px;
 	background-size: 55px;
-	padding-left: 70px;
+	padding-left: 90px;
 }
 .tableRow:hover .linkTitle {
 	margin-top: 0;
@@ -127,7 +129,12 @@ body {
 }
 
 .editButtonWrapper {
+	padding-left: 10px;
+	padding-right: 10px;
 	text-align: center;
+}
+.editButton {
+	margin-top: 10px;
 }
 .editButton, .addColumnButton {
 	cursor: pointer;

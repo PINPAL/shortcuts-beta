@@ -57,6 +57,13 @@
                 <p>You can load your backup that you created to restore a previous layout.</p>
                 <button class="button" onclick="importConfig()">Upload Config</button>
             </div>
+            <div class="popupWindow" id="rowDeleteConfirmation">
+                <div class="popupCloseButton" onClick="displayPopup(false,'')"></div>
+                <h1 style="font-size: 26pt;">Delete Link</h1>
+                <h2 id="deleteDialogueRow"></h2>
+                <p>This action cannot be undone!</p>
+                <button class="button" id="rowDeleteConfirmationButton">Confirm Delete</button>
+            </div>
             <div class="popupWindow" id="customize" style="max-width: 1230px;">
                 <div class="popupCloseButton" onClick="displayPopup(false,'')"></div>
                 <h1 style="font-size: 26pt;">Customize</h1>

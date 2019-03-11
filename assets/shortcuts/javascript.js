@@ -61,6 +61,7 @@ function loadConfig(showeditMode) {
             a.href = section[j + 1];
             //Create the row
             var rowContent = document.createElement("div");
+            rowContent.id = section[0]
             rowContent.className = "tableRow";
             rowContent.style.backgroundImage = "url('" + section[j + 2] + "')"
             //Create the link title
@@ -112,10 +113,41 @@ function loadConfig(showeditMode) {
     }
 }
 
+//Delete row button 
+function deleteRow(rowForDeletion) {
+    categoryLocation = rowForDeletion.id
+    linkTitle = rowForDeletion.childNodes[0].innerText
+    linkURL = rowForDeletion.childNodes[1].innerText
+    linkIcon = rowForDeletion.style.backgroundImage.substring(5,rowForDeletion.style.backgroundImage.length - 2)
+    document.getElementById("deleteDialogueRow").innerText = "'" + linkTitle + "' will be deleted!"
+    document.getElementById("rowDeleteConfirmationButton").setAttribute("onClick","confirmDeleteRow('" + categoryLocation + "','" + linkTitle + "','" + linkURL  + "','" + linkIcon + "')")
+    displayPopup('true','rowDeleteConfirmation')
+}
+
+//Confirm delete row
+function confirmDeleteRow(categoryOfRow, linkTitle,linkURL,linkIcon) {
+    console.log(categoryOfRow + "/" + linkTitle + "/" + linkURL + "/" + linkIcon)
+    //Split up config into categories
+    var categories = config.split("#")
+    //Remove blank category
+    categories.splice(0,1)
+    for (i = 0; i < categories.length; i++) {
+        //Split up category into title, links and header
+        section = categories[i].split("•");
+        //Find link and delete
+        if (section[0] == categoryOfRow) {
+            for (j = 0; j < section.length; j++) {
+                if (section[j] == linkTitle && section[j+1].replace(/(.*?:\/\/)|(www\.)/g, "") == linkURL && section[j+2] == linkIcon) {
+                    console.log(section[j] + "/" + section[j+1] + "/" + section[j+2])
+                }
+            }
+        }
+    }
+}
+
 //Delete category button
 function deleteCategory(categoryLocation) {
     displayPopup(true,"categoryDeleteConfirmation")
-    var categoryForDeletion = categoryLocation.parentNode.id
     document.getElementById("deleteDialogue").innerText = "'" + categoryForDeletion + "' will be deleted"
     document.getElementById("categoryDeleteConfirmationButton").setAttribute("onClick","confirmDeleteCategory('"+ categoryForDeletion + "')")
 }
@@ -183,6 +215,11 @@ function editMode(shouldEnable) { //Enable edit mode
         //Set category names to editable (NOT read-only)
         for (i = 0; i < document.getElementsByClassName("categoryName").length; i++) {
             document.getElementsByClassName("categoryName")[i].readOnly = false
+        }
+        //Make link rows deletable
+        for (i = 0; i < document.getElementsByClassName("tableRow").length; i++) {
+            document.getElementsByClassName("tableRow")[i].parentElement.removeAttribute("href")
+            document.getElementsByClassName("tableRow")[i].setAttribute("onClick","deleteRow(this)")
         }
     } else { //Disable edit mode
         //Reset error messages

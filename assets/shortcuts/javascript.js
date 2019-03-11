@@ -117,13 +117,11 @@ function deleteCategory(categoryLocation) {
     displayPopup(true,"categoryDeleteConfirmation")
     var categoryForDeletion = categoryLocation.parentNode.id
     document.getElementById("deleteDialogue").innerText = "'" + categoryForDeletion + "' will be deleted"
-    document.getElementById("categoryDeleteConfirmationButton").setAttribute("onClick","confirmDeleteCategory("+ categoryForDeletion + ")")
+    document.getElementById("categoryDeleteConfirmationButton").setAttribute("onClick","confirmDeleteCategory('"+ categoryForDeletion + "')")
 }
 
 //Confirm delete category
 function confirmDeleteCategory(categoryForDeletion) {
-    //Load config from cookie
-    config = readCookie("config")
     //Split up config into categories
     var categories = config.split("#")
     //Remove blank category
@@ -141,6 +139,7 @@ function confirmDeleteCategory(categoryForDeletion) {
     for (i = 0; i < categories.length; i++) {
         config = config + "•#" + categories[i]
     }
+    displayPopup(false,"")
     createCookie("config",config,999)
     loadConfig(true)
 }

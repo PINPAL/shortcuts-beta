@@ -137,7 +137,7 @@ function confirmDeleteCategory(categoryForDeletion) {
     //Combine categories and put it back into config
     config = ""
     for (i = 0; i < categories.length; i++) {
-        config = config + "•#" + categories[i]
+        config = config + "#" + categories[i]
     }
     displayPopup(false,"")
     createCookie("config",config,999)

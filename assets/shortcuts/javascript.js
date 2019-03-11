@@ -1,5 +1,11 @@
 //Load config 
 loadConfig(false)
+
+//Display tutorial if user has no conifg
+if (readCookie("config") == "") {
+    displayPopup(true,"tutorial")
+}
+
 //Function to render
 function loadConfig(showeditMode) {
     //Load config from cookie

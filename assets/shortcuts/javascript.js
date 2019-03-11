@@ -3,7 +3,7 @@ loadConfig(false)
 //Function to render
 function loadConfig(showeditMode) {
     //Load config from cookie
-    config = document.cookie
+    config = readCookie("config")
     //Clear old columns
     for (i = 0; i < document.getElementsByClassName("column").length; i++) {
         document.getElementsByClassName("column")[i].innerHTML = "";
@@ -122,6 +122,8 @@ function deleteCategory(categoryLocation) {
 
 //Confirm delete category
 function confirmDeleteCategory(categoryForDeletion) {
+    //Load config from cookie
+    config = readCookie("config")
     //Split up config into categories
     var categories = config.split("#")
     //Remove blank category
@@ -139,7 +141,7 @@ function confirmDeleteCategory(categoryForDeletion) {
     for (i = 0; i < categories.length; i++) {
         config = config + "•#" + categories[i]
     }
-    document.cookie = config
+    createCookie("config",config,999)
     loadConfig(true)
 }
 
@@ -170,7 +172,7 @@ function shiftCategory(categoryLocation,shift) {
     for (i = 0; i < categories.length; i++) {
         config = config + "#" + categories[i]
     }
-    document.cookie = config
+    createCookie("config",config,999)
     loadConfig(true)
 }
 
@@ -224,7 +226,7 @@ function editMode(shouldEnable) { //Enable edit mode
                 document.getElementsByClassName("categoryName")[i].readOnly = true
             }
         }
-        document.cookie = config
+        createCookie("config",config,999)
     }
 }
 
@@ -277,7 +279,7 @@ function applyAddShortcut() {
             config = config + splitConfig[i]
         }
         //Display new config
-        document.cookie = config
+        createCookie("config",config,999)
         loadConfig(true)
     }
 }
@@ -338,7 +340,7 @@ function applyAddCategory() {
             config = config + splitConfig[i]
         }
         //Display new config
-        document.cookie = config
+        createCookie("config",config,999)
         loadConfig(true)
     }
 }
@@ -462,10 +464,32 @@ window.onresize = function(event) {
 //Import Config
 function importConfig() {
     uploadText().then(config => {
-        document.cookie = config
+        createCookie("config",config,999)
         loadConfig(true)
         displayPopup(false,"")
    })
+}
+
+//Function to read/write cookies
+function createCookie(name,value,days) {
+	if (days) {
+		var date = new Date();
+		date.setTime(date.getTime()+(days*24*60*60*1000));
+		var expires = "; expires="+date.toGMTString();
+	}
+	else var expires = "";
+	document.cookie = name+"="+value+expires+"; path=/";
+}
+
+function readCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+	}
+	return null;
 }
 
   

@@ -147,6 +147,7 @@ function confirmDeleteRow(categoryOfRow, linkTitle,linkURL,linkIcon) {
 
 //Delete category button
 function deleteCategory(categoryLocation) {
+    categoryForDeletion =  categoryLocation.parentElement.id
     displayPopup(true,"categoryDeleteConfirmation")
     document.getElementById("deleteDialogue").innerText = "'" + categoryForDeletion + "' will be deleted"
     document.getElementById("categoryDeleteConfirmationButton").setAttribute("onClick","confirmDeleteCategory('"+ categoryForDeletion + "')")
@@ -288,11 +289,28 @@ function applyAddShortcut() {
     }
     //Generic icon application
     if (linkIcon == "") {
-        linkIcon = "assets/shortcuts/genericIcon.png"
+        linkIcon = "https://pinpal.github.io/shortcuts/assets/shortcuts/genericIcon.png"
     }
     //Remove hashtags and bullet points from URL and Icon
     linkURL = isNameInvalid(linkURL)[1]
     linkIcon = isNameInvalid(linkIcon)[1]
+    //Split up config into categories
+    var categories = config.split("#")
+    //Remove blank category
+    categories.splice(0,1)
+    for (i = 0; i < categories.length; i++) {
+        //Split up category into title, links and header
+        section = categories[i].split("•");
+        //Validate link doesn't exist
+        if (section[0] == window.value) {
+            for (j = 0; j < section.length; j++) {
+                console.log(section[j])
+                if (section[j] == linkTitle && section[j+1].replace(/(.*?:\/\/)|(www\.)/g, "") == linkURL && section[j+2] == linkIcon) {
+                    errorMessages.push("Error: Link cannot be the same as another in category!")
+                }
+            }
+        }
+    }
     //Display error messages
     for (i = 0; i < errorMessages.length; i++) {
         errorMesssageBox = document.createElement("div")

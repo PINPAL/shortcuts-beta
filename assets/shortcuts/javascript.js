@@ -2,7 +2,8 @@
 loadConfig(false)
 
 //Display tutorial if user has no conifg
-if (readCookie("config") == "") {
+console.log(readCookie("config"))
+if (readCookie("config") == null || readCookie("config") == undefined) {
     displayPopup(true,"tutorial")
 }
 

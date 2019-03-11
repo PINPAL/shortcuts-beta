@@ -1,9 +1,10 @@
-//Load config 
-loadConfig(false)
 
 //Display tutorial if user has no conifg
 console.log(readCookie("config"))
-if (readCookie("config") == null || readCookie("config") == undefined) {
+if (readCookie("config")) {
+    //Load config 
+    loadConfig(false)
+} else {
     displayPopup(true,"tutorial")
 }
 

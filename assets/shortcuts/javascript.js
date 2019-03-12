@@ -7,7 +7,7 @@ if (document.cookie) {
 }
 
 //Function to render
-function loadConfig(showeditMode) {
+function loadConfig(showEditMode) {
     //Load config from cookie
     config = readCookie("config")
     //Clear old columns
@@ -114,7 +114,7 @@ function loadConfig(showeditMode) {
         document.getElementsByClassName("column")[column].appendChild(editButtonWrapper);
     }
     //Shows edit buttons again if specified by parameter (needed for Applying Changes)
-    if (showeditMode) {
+    if (showEditMode) {
         editMode(true)
     }
 }
@@ -232,9 +232,23 @@ function shiftCategory(categoryLocation,shift) {
     loadConfig(true)
 }
 
+//Define backupConfig
+var backupConfig = "null"
+//Confirm cancel edit mode (don't save)
+function confirmCancelEditMode() {
+    createCookie("config",backupConfig,999)
+    loadConfig(false)
+    editMode(false)
+    backupConfig = "null"
+    displayPopup(false,"")
+}
+
 //Enable/Disable Edit Mode
 function editMode(shouldEnable) { //Enable edit mode
     if (shouldEnable) {
+        if (backupConfig == "null") {
+            backupConfig = readCookie("config")
+        }
         //Enable edit mode stylesheet
         document.getElementById("editModeStylesheet").disabled = false
         //Set category names to editable (NOT read-only)

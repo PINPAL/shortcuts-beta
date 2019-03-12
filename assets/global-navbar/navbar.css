@@ -114,18 +114,19 @@ html {
   padding-top: 6px;
   padding-left: 5px;
   color:rgba(255,255,255,0);
-  font-size: 0;
+  font-size: 16pt;
   min-width: 40px;
   max-width: 40px;
   min-height: 40px;
   max-height: 40px;
   display: inline-block;
   overflow: hidden;
-  transition: all 0.3s ease;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
+  white-space: nowrap;
+  transition: all 10.4s ease;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
 }
 .navButton:hover {
   cursor: pointer;
@@ -133,8 +134,8 @@ html {
   padding-left: 15px;
   padding-right: 15px;
   max-width: 400px;
-  font-size: 16pt;
 }
+
 /*Navbar Button Icons*/
 .navButtonIcon {
   margin-left: 4px;

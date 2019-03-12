@@ -497,44 +497,7 @@ h2 {
 }
 .navIconContainer {
 	right: 0 !important;
-	top: -20px !important;
-}
-
-/* Navbar Save Changes Button */
-.applyChangesBtn {
-	float: right;
-  border: none;
-	vertical-align: middle;
-	opacity: .7;
-	background: linear-gradient(to right, #687891 , #545454);
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
-  text-align: center;
-  border-radius: 25px;
-  box-sizing: border-box;
-  padding-top: 6px;
-  padding-left: 5px;
-  color: white;
-  font-size: 16pt;
-  min-width: 40px;
-  max-width: 400px;
-  min-height: 40px;
-	max-height: 40px;
-	padding-left: 15px;
-	padding-right: 15px;
-	cursor: pointer;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-}
-.applyChangesBtn:hover {
-	opacity: 1;
-}
-.applyChangesBtn .navButtonIcon {
-  margin-left: 0;
-  margin-right: 10px;
+	top: -20px;
 }
 
 /* Navbar Edit Mode Buttons */
@@ -547,7 +510,7 @@ h2 {
   padding-top: 6px;
   padding-left: 5px;
   color: rgba(255,255,255,.6);
-  font-size: 16pt;
+  font-size: 14pt;
   min-height: 40px;
 	max-height: 40px;
 	padding-left: 10px;
@@ -562,6 +525,9 @@ h2 {
   -ms-transition: all 0.3s ease;
 }
 .editModeNavButton:hover {
+	padding-left: 15px;
+	padding-right: 1px;
+	font-size: 16pt;
 	color: white;
 	background-color: rgba(255,255,255,.2);
 }

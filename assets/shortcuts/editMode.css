@@ -40,4 +40,5 @@
     background-image: url("delete.png") !important;
     background-size: 32px;
     background-position-x: 26px;
+    cursor: pointer;
 }

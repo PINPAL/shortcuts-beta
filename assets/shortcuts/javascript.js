@@ -6,6 +6,12 @@ if (document.cookie) {
     displayPopup(true,"tutorial")
 }
 
+//Link Cleanup Function
+function cleanupURL(url) {
+    url = url.replace(/(.*?:\/\/)|(www\.)/g, "").replace(/\/.*/,"")
+    return url
+}
+
 //Function to render
 function loadConfig(showEditMode) {
     //Load config from cookie
@@ -77,7 +83,7 @@ function loadConfig(showEditMode) {
             //Create the link URL
             var linkURL = document.createElement("span");
             linkURL.className = "linkURL"
-            linkURL.innerText = section[j + 1].replace(/(.*?:\/\/)|(www\.)/g, "")
+            linkURL.innerText = cleanupURL(section[j + 1])
             //Add link and title into the row
             rowContent.appendChild(linkTitle)
             rowContent.appendChild(linkURL)
@@ -142,7 +148,7 @@ function confirmDeleteRow(categoryOfRow, linkTitle,linkURL,linkIcon) {
         //Find link and delete
         if (section[0] == categoryOfRow) {
             for (j = 0; j < section.length; j++) {
-                if (section[j] == linkTitle && section[j+1].replace(/(.*?:\/\/)|(www\.)/g, "") == linkURL && section[j+2] == linkIcon) {
+                if (section[j] == linkTitle &&  cleanupURL(section[j+1]) == linkURL && section[j+2] == linkIcon) {
                     section.splice(j,3)
                 }
             }
@@ -342,8 +348,7 @@ function applyAddShortcut() {
         //Validate link doesn't exist
         if (section[0] == window.value) {
             for (j = 0; j < section.length; j++) {
-                console.log(section[j])
-                if (section[j] == linkTitle && section[j+1].replace(/(.*?:\/\/)|(www\.)/g, "") == linkURL && section[j+2] == linkIcon) {
+                if (section[j] == linkTitle && cleanupURL(section[j+1]) == linkURL && section[j+2] == linkIcon) {
                     errorMessages.push("Error: Link cannot be the same as another in category!")
                 }
             }
@@ -582,6 +587,4 @@ function readCookie(name) {
 		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
 	}
 	return null;
-}
-
-  
+}  

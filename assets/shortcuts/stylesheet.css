@@ -57,7 +57,8 @@ body {
 
 .bigBox, .popupWindow {
 	overflow: hidden;
-	width: calc(100% - 10px);
+	width: calc(100% - 30px);
+	max-width: calc(100% - 30px);
 	box-sizing: border-box;
 	background: #2F3439;
 	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
@@ -93,8 +94,8 @@ body {
 	background-repeat: no-repeat;
 	background-position-y: center;
 	background-position-x: 20px;
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-top: 3px;
+	padding-bottom: 3px;
 	padding-left: 78px;
 	padding-right: 20px;
 	min-height: 50px;
@@ -104,8 +105,8 @@ body {
 
 /*Fancy Animation for rows of apps*/
 .tableRow:hover {
-	padding-top: 25px;
-	padding-bottom: 25px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 	min-height: 65px;
 	background-size: 55px;
 	padding-left: 90px;
@@ -248,6 +249,10 @@ a {
 
 p {
 	margin-bottom: 15px;
+	color: rgba(255,255,255,.6)
+}
+
+li {
 	color: rgba(255,255,255,.6)
 }
 

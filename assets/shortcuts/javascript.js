@@ -513,7 +513,7 @@ function downloadConfig() {
     var element = document.createElement('a');
     var date = new Date()
     var date = date.getDate() + "." + date.getMonth() + "." + date.getFullYear().toString(10).substr(2,2)
-    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(config));
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(config.replace(/\•/g,"•\r\n").replace(/\#/g,"\r\n#").replace("\r\n","")))
     element.setAttribute('download', "PINPAL Shortcuts Backup (" + date + ").txt");
     element.style.display = 'none';
     document.body.appendChild(element);

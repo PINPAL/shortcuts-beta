@@ -610,7 +610,8 @@ function toggle(variableToToggle) {
 
 //Apply customization changes
 function applyCustomizationChanges() {
-        if (customizedValues.includes("disableBranding")) {
+        //Disable Branding
+        if (customizedValues.includes("disableBranding")) { 
             for (i=0; i < document.getElementsByClassName("brandingSocial").length; i++) {
                 document.getElementsByClassName("brandingSocial")[i].style.display = "none"
             }
@@ -618,7 +619,9 @@ function applyCustomizationChanges() {
             startTime()
             displayPopup(false,"")
             document.getElementById("disableBranding").className = "toggleSwitch"
-        } else {
+        }
+        //Enable Branding
+         if (customizedValues.includes("disableBranding") == false) {
             for (i=0; i < document.getElementsByClassName("brandingSocial").length; i++) {
                 document.getElementsByClassName("brandingSocial")[i].style.display = "inline-block"
             }
@@ -626,6 +629,16 @@ function applyCustomizationChanges() {
             document.getElementById('title').innerText = "PINPAL"
             displayPopup(false,"")
             document.getElementById("disableBranding").className = "toggleSwitch enabledToggle"
+        }
+        //Disable Dark Mode
+        if (customizedValues.includes("disableDarkMode")) {
+            document.getElementById("lightModeStylesheet").disabled = false
+            document.getElementById("disableDarkMode").className = "toggleSwitch"
+        }
+        //Enable Dark Mode
+        if (customizedValues.includes("disableDarkMode") == false) {
+            document.getElementById("lightModeStylesheet").disabled = true
+            document.getElementById("disableDarkMode").className = "toggleSwitch enabledToggle"
         }
         createCookie("customizedValues",customizedValues,999)
 }

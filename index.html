@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="assets/shortcuts/stylesheet.css">
     <link rel="stylesheet" type="text/css" href="assets/shortcuts/editMode.css" id="editModeStylesheet" disabled>
     <link rel="stylesheet" type="text/css" href="assets/shortcuts/popup.css" id="popupStylesheet" disabled>
+    <link rel="stylesheet" type="text/css" href="assets/shortcuts/lightMode.css" id="lightModeStylesheet" disabled>
 </head>
 <body>
     <div class="popupWrapper">
@@ -106,13 +107,13 @@
                         <p>Show the icons on the side of the links</p>
                         <div class="toggleSwitch enabledToggle" id="enableIcons" onclick="toggle(this)">
                             <div class="toggleSwitchKnob"></div>
-                        </div>
+                        </div>-->
                     </div><div class="prefsRow" style="border:none">
                         <h2>Enable Dark Mode</h2>
                         <p>Use a dark night time theme on the site</p>
-                        <div class="toggleSwitch enabledToggle" id="enableDarkMode" onclick="toggle(this)">
+                        <div class="toggleSwitch enabledToggle" id="disableDarkMode" onclick="toggle(this)">
                             <div class="toggleSwitchKnob"></div>
-                        </div>-->
+                        </div>
                     </div>
                     <div class="errorMessageContainer"></div>
                     <button class="button" onclick='applyCustomizationChanges()'>Apply Changes</button>
@@ -146,16 +147,26 @@
                 <div class="popupCloseButton" onClick="displayPopup(false,'')"></div>
                 <h1 style="font-size: 26pt;">About</h1>
                 <h2>Version</h2>
-                <p id="version">Current Version: 1.1.0</p>
+                <p id="version">Latest Version: 1.2.0</p>
                 <h2>What's New</h2>
-                <p>Things that changed in this update:</p>
+                <p><b>Changes in 1.0.1:</b></p>
+                <ul>
+                    <li>Row Padding Reduced</li>
+                    <li>Cleanup Console Logs</li>
+                    <li>Improved URL Preview Shortening</li>
+                </ul>
+                <br><p><b>Changes in 1.1.0:</b></p>
                 <ul>
                     <li>Hidden "Coming Soon" Customization Options</li>
                     <li>Added "Enable Branding" to Customization Options</li>
                 </ul>
+                <br><p><b>Changes in 1.2.0:</b></p>
+                <ul>
+                    <li>Added "Enable Dark Mode" to Customization Options</li>
+                </ul>
                 <h2>Creator</h2>
-                <p>This website was created by PINPAL
-                <br>Contact me using the links below:</p>
+                <p style="margin-bottom: 30px;">This website was created by PINPAL. Found a bug or got a suggestion, 
+                    feel free to contact me using any of the links below:</p>
                 <a href="https://discordapp.com/channels/@me" style="display:inline-block;min-width: 230px">
                     <img class="twitter" src="https://pinpal.github.io/assets/social-icons/Discord.png" style="float:left;padding: 10px;margin-top: -15px">
                       <p>Discord<br><span style="color: rgba(255,255,255,.5)">PINPAL#2591</span></p>

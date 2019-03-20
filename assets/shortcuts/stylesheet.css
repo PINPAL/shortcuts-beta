@@ -568,6 +568,7 @@ h2 {
 }
 
 .toggleSwitchKnob {
+	z-index: 99;
 	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.45);
 	position: absolute;
 	top: 2px;

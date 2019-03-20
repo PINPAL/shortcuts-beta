@@ -1,0 +1,107 @@
+*, #title, .popupTextField, .navbarSearch {
+	color: black;
+}
+
+body {
+	background-color: #F0EFF5;
+}
+
+.bigBox, .popupWindow {
+    background-color: white;
+    border-color: rgba(0, 0, 0, 0);
+}
+.linkURL {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.editButton, .addColumnButton {
+    background-color: rgba(0,0,0,.15);
+}
+.editButton:hover, .addColumnButton:hover {
+	background-size: 0;
+	background-color: rgba(0,0,0,.3);
+	color: black;
+}
+.addColumnButton {
+	background-color: rgba(0,0,0,.25);
+}
+.addColumnButton:hover {
+    background-color: rgba(0,0,0,.55);
+    color: white;
+}
+
+.moveCategoryButton, .deleteCategoryButton {
+    filter: invert(100%);
+}
+.moveCategoryButton:hover {
+    background-color: rgba(255,255,255,.2);
+}
+.deleteCategoryButton:hover {
+    filter: invert(0%);
+}
+
+.categoryName {
+    filter: invert(100%);
+    color: white;
+}
+
+.prefsRow {
+    border-color: rgba(0,0,0,.12);
+}
+
+p, li {
+	color: rgba(0,0,0,.73);
+}
+
+.popupTextField, .navbarSearch {
+    background: rgba(0,0,0,.1);
+}
+.popupTextField:hover, .navbarSearch:hover {
+    background: rgba(0,0,0,.185);
+}
+.popupTextField:focus, .navbarSearch:focus {
+    background: rgba(0,0,0,.25);
+}
+
+.popupWrapper {
+    background-color: rgba(0,0,0,.5);
+}
+
+#navbar {
+    background: #d8d8d8;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.navIconContainer, .navEditMenu {
+    border-radius: 30%;
+    background-color: #d8d8d8;
+    box-shadow: -20px 0 30px 10px #d8d8d8;
+}
+
+.editModeNavButton {
+    color: rgba(0,0,0,.75)
+}
+.editModeNavButton:hover {
+    color: black;
+    background-color: rgba(0,0,0,.1)
+}
+
+.navbarSeperator {
+    border-color: rgba(0,0,0,.15)
+}
+
+.navButton {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05);
+}
+
+.miniNav {
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.25) !important;
+}
+
+.toggleSwitchKnob {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2), -4px -4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.enabledToggle .toggleSwitchKnob {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.45);
+}

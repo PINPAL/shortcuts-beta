@@ -17,8 +17,10 @@ var customizedValues = []
 
 //Function to render
 function loadConfig(showEditMode) {
-    //Load custom customization settings from cookie
-    customizedValues = readCookie("customizedValues")
+    //Validate if custom customization settings exists and then load  from cookie
+    if (document.cookie.indexOf("customizedValues=") >= 0) {
+        customizedValues = readCookie("customizedValues")
+    }
     applyCustomizationChanges()
     //Load config from cookie
     config = readCookie("config")
@@ -573,7 +575,7 @@ function importConfig() {
    })
 }
 
-//Function to read/write cookies
+//Function to write cookies
 function createCookie(name,value,days) {
 	if (days) {
 		var date = new Date();
@@ -584,6 +586,7 @@ function createCookie(name,value,days) {
 	document.cookie = name+"="+value+expires+"; path=/";
 }
 
+//Function to read cookies
 function readCookie(name) {
 	var nameEQ = name + "=";
 	var ca = document.cookie.split(';');

@@ -12,6 +12,9 @@ function cleanupURL(url) {
     return url
 }
 
+//Define global variable to allow being passed between functions
+var customizedValues = []
+
 //Function to render
 function loadConfig(showEditMode) {
     //Load custom customization settings from cookie
@@ -593,7 +596,6 @@ function readCookie(name) {
 }
 
 //Function for toggling toggles
-var customizedValues = [] //Define global
 function toggle(variableToToggle) {
     if (variableToToggle.className == "toggleSwitch enabledToggle") {
         customizedValues.push(variableToToggle.id)

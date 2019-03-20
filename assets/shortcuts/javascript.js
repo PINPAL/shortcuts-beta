@@ -14,6 +14,9 @@ function cleanupURL(url) {
 
 //Function to render
 function loadConfig(showEditMode) {
+    //Load custom customization settings from cookie
+    customizedValues = readCookie("customizedValues")
+    applyCustomizationChanges()
     //Load config from cookie
     config = readCookie("config")
     //Clear old columns
@@ -587,4 +590,72 @@ function readCookie(name) {
 		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
 	}
 	return null;
-}  
+}
+
+//Function for toggling toggles
+var customizedValues = [] //Define global
+function toggle(variableToToggle) {
+    if (variableToToggle.className == "toggleSwitch enabledToggle") {
+        customizedValues.push(variableToToggle.id)
+        variableToToggle.className = "toggleSwitch"
+    } else {
+        for (i=0; i < customizedValues.length; i++) {
+            if (customizedValues[i] === variableToToggle.id) {
+                customizedValues.splice(i,1)
+            }
+        }
+        variableToToggle.className = "toggleSwitch enabledToggle"
+    }
+}
+
+//Apply customization changes
+function applyCustomizationChanges() {
+        if (customizedValues.includes("disableBranding")) {
+            for (i=0; i < document.getElementsByClassName("brandingSocial").length; i++) {
+                document.getElementsByClassName("brandingSocial")[i].style.display = "none"
+            }
+            document.getElementsByClassName("logo")[0].style.display = "none"
+            startTime()
+            displayPopup(false,"")
+            document.getElementById("disableBranding").className = "toggleSwitch"
+        } else {
+            for (i=0; i < document.getElementsByClassName("brandingSocial").length; i++) {
+                document.getElementsByClassName("brandingSocial")[i].style.display = "inline-block"
+            }
+            document.getElementsByClassName("logo")[0].style.display = "inline"
+            document.getElementById('title').innerText = "PINPAL"
+            displayPopup(false,"")
+            document.getElementById("disableBranding").className = "toggleSwitch enabledToggle"
+        }
+        createCookie("customizedValues",customizedValues,999)
+}
+
+//Functions for checking and setting time
+function startTime() {
+    if (customizedValues.includes("disableBranding")) {
+        var today = new Date();
+        var hour = today.getHours();
+        var minute = today.getMinutes();
+        var date = today.getDate() + getTimeSuffix(today.getDate());
+        var month = getMonthInWords(today.getMonth())
+        if (minute < 10) {minute = "0" + i} //Adding zero in front of minute
+        document.getElementById('title').innerText = hour + ":" + minute + " - " + date + " " + month
+        var t = setTimeout(startTime, 60000);
+    }
+}
+function getTimeSuffix(number) {
+    number = number % 10
+    if (number == 1) {
+        return "st"
+    } else if (number == 2) {
+        return "nd"
+    } else if (number == 3) {
+        return "rd"
+    } else {
+        return "th"
+    }
+}
+function getMonthInWords(month) {
+    var months = ["Janurary","February","March","April","May","June","July","August","September","October","November","December"]
+    return months[month]
+}

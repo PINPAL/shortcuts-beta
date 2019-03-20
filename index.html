@@ -64,65 +64,60 @@
                 <p>This action cannot be undone!</p>
                 <button class="button" id="rowDeleteConfirmationButton">Confirm Delete</button>
             </div>
-            <div class="popupWindow" id="customize" style="max-width: 1230px;">
+            <div class="popupWindow" id="customize"> <!--   style="max-width: 1230px;"  -->
                 <div class="popupCloseButton" onClick="displayPopup(false,'')"></div>
                 <h1 style="font-size: 26pt;">Customize</h1>
-                <div class="dualColumn" style="padding-right: 15px;"">
-                    <h2>Background Color</h2>
-                    <p>The background color of the page. Accepts Hex value</p>
-                    <input type="text" class="popupTextField" style="width: 100%;" id="customizeBackgroundColor" placeholder="#00000">
-                    <h2>Box Color</h2>
-                    <p>The color of the link boxes. Accepts Hex value</p>
-                    <input type="text" class="popupTextField" style="width: 100%;" id="customizeBoxColor" placeholder="#00000">
-                    <h2>Link Title Color</h2>
-                    <p>The color of the title of links in the boxes. Accepts Hex value</p>
-                    <input type="text" class="popupTextField" style="width: 100%;" id="customizeLinkColor" placeholder="#00000">
-                    <h2>Link URL Color</h2>
-                    <p>The color of the link URL in the boxes. Accepts Hex value</p>
-                    <input type="text" class="popupTextField" style="width: 100%;" id="customizeURLColor" placeholder="#00000">
-                    <h2>Category Title Color:</h2>
-                    <p>The color of the large titles above categories. Accepts Hex value</p>
-                    <input type="text" class="popupTextField" style="width: 100%;" id="customizeSubtitleColor" placeholder="#00000">
-                </div><div class="dualColumn" style="border-left: solid;border-color:rgba(255,255,255,.1);border-width: 2px;padding-left: 15px;">
-                    <h2>Navbar Colour:</h2>
-                    <p>The background color of the navbar. Accepts Hex value</p>
-                    <input type="text" class="popupTextField" style="width: 100%;" id="navbarBackgroundColor" placeholder="#00000">
-                    <h2>Enable Branding</h2>
-                    <p>Show the PINPAL branding on the top of the navbar.</p>
-                    <div class="toggleSwitch" id="enableBranding">
-                        <div class="dualColumn" style="text-align: center" >
-                            <div class="toggleSwitchEnable" style="background-color: rgba(200,200,255,0.2);color:white;" id="enableBranding">Enabled</div>
-                        </div>
-                        <div class="dualColumn" style="text-align: center">
-                            <div class="toggleSwitchDisable" id="enableBranding">Disabled</div>
-                        </div>
+                <!-- <div class="dualColumn" style="padding-right:15px;">
+                    <div class="prefsRow">
+                        <h2>Background Color</h2>
+                        <p>The background color of the page. Accepts Hex value</p>
+                        <input type="text" class="popupTextField" style="width: 100%;" id="customizeBackgroundColor" placeholder="#00000">
+                    </div><div class="prefsRow">
+                        <h2>Box Color</h2>
+                        <p>The color of the link boxes. Accepts Hex value</p>
+                        <input type="text" class="popupTextField" style="width: 100%;" id="customizeBoxColor" placeholder="#00000">
+                    </div><div class="prefsRow">
+                        <h2>Link Title Color</h2>
+                        <p>The color of the title of links in the boxes. Accepts Hex value</p>
+                        <input type="text" class="popupTextField" style="width: 100%;" id="customizeLinkColor" placeholder="#00000">
+                    </div><div class="prefsRow">
+                        <h2>Link URL Color</h2>
+                        <p>The color of the link URL in the boxes. Accepts Hex value</p>
+                        <input type="text" class="popupTextField" style="width: 100%;" id="customizeURLColor" placeholder="#00000">
+                    </div><div class="prefsRow" style="border:none">
+                       <h2>Category Title Color:</h2>
+                        <p>The color of the large titles above categories. Accepts Hex value</p>
+                        <input type="text" class="popupTextField" style="width: 100%;" id="customizeSubtitleColor" placeholder="#00000"> 
                     </div>
-                    <h2>Enable Social Links</h2>
-                    <p>Show the PINPAL social buttons on the navbar.</p>
-                    <div class="toggleSwitch" id="enableSocials">
-                        <div class="dualColumn" style="text-align: center" >
-                            <div class="toggleSwitchEnable" style="background-color: rgba(200,200,255,0.2);color:white;" id="enableSocials">Enabled</div>
+                </div><div class="dualColumn" style="padding-left:15px;">   
+                    <div class="prefsRow">
+                        <h2>Navbar Colour:</h2>
+                        <p>The background color of the navbar. Accepts Hex value</p>
+                        <input type="text" class="popupTextField" style="width: 100%;" id="navbarBackgroundColor" placeholder="#00000"> 
+                    </div>--><div class="prefsRow" style="margin-top: 30px">
+                        <h2>Enable Branding</h2>
+                        <p>Show PINPAL logo and social links on the Navbar</p>
+                        <div class="toggleSwitch enabledToggle" id="disableBranding" onclick="toggle(this)">
+                            <div class="toggleSwitchKnob"></div>
                         </div>
-                        <div class="dualColumn" style="text-align: center">
-                            <div class="toggleSwitchDisable" id="enableSocials">Disabled</div>
+                        <!--
+                    </div><div class="prefsRow">
+                        <h2>Enable Icons</h2>
+                        <p>Show the icons on the side of the links</p>
+                        <div class="toggleSwitch enabledToggle" id="enableIcons" onclick="toggle(this)">
+                            <div class="toggleSwitchKnob"></div>
                         </div>
-                    </div>
-                    <h2>Enable Icons</h2>
-                    <p>Show the icons on the side of the links</p>
-                    <div class="toggleSwitch" id="enableIcons">
-                        <div class="dualColumn" style="text-align: center" >
-                            <div class="toggleSwitchEnable" style="background-color: rgba(200,200,255,0.2);color:white;" id="enableIcons">Enabled</div>
-                        </div>
-                        <div class="dualColumn" style="text-align: center">
-                            <div class="toggleSwitchDisable" id="enableIcons">Disabled</div>
-                        </div>
+                    </div><div class="prefsRow" style="border:none">
+                        <h2>Enable Dark Mode</h2>
+                        <p>Use a dark night time theme on the site</p>
+                        <div class="toggleSwitch enabledToggle" id="enableDarkMode" onclick="toggle(this)">
+                            <div class="toggleSwitchKnob"></div>
+                        </div>-->
                     </div>
                     <div class="errorMessageContainer"></div>
-                    <button class="button" style="background: rgba(255, 255, 255, 0.3);color: rgba(0,0,0,.7);margin-top: 70px;" >
-                        <strike style="color: rgba(0,0,0,.7)">Apply Changes</strike> Coming Soon...
-                    </button>
+                    <button class="button" onclick='applyCustomizationChanges()'>Apply Changes</button>
                 </div>
-            </div>
+            <!--</div>    for dual column     --> 
             <div class="popupWindow" id="tutorial">
                 <div class="popupCloseButton" onClick="displayPopup(false,'')"></div>
                 <h1 style="font-size: 26pt;">Welcome</h1>
@@ -151,13 +146,12 @@
                 <div class="popupCloseButton" onClick="displayPopup(false,'')"></div>
                 <h1 style="font-size: 26pt;">About</h1>
                 <h2>Version</h2>
-                <p id="version">Current Version: 1.0.1</p>
+                <p id="version">Current Version: 1.1.0</p>
                 <h2>What's New</h2>
                 <p>Things that changed in this update:</p>
                 <ul>
-                    <li>Row Padding Reduced</li>
-                    <li>Cleanup Console Logs</li>
-                    <li>Improved URL Preview Shortening</li>
+                    <li>Hidden "Coming Soon" Customization Options</li>
+                    <li>Added "Enable Branding" to Customization Options</li>
                 </ul>
                 <h2>Creator</h2>
                 <p>This website was created by PINPAL
@@ -192,7 +186,7 @@
                         <div class="navIconContainer">
         
                             <form method="get" action="http://www.google.com/search" style="display:inline-block">
-                                <input type="text" class="popupTextField" name="q" placeholder="Search" class="navbarSearch">
+                                <input type="text" name="q" placeholder="Search" class="navbarSearch">
                                 <button type="submit" style="padding:0;margin:0;background:none;border:none;">
                                     <div class="navButton" style="background: linear-gradient(to right, #15a55d , #14d179)">
                                         <img src="assets/page-icons/search.png" class="navButtonIcon" align="left">Search
@@ -200,22 +194,22 @@
                                 </button>
                             </form>
                 
-                            <a href="https://twitter.com/TPINPAL">
+                            <a href="https://twitter.com/TPINPAL" class="brandingSocial">
                                 <div class="navButton" style="background: linear-gradient(to right, #55ACEF , #0A76E7)">
                                 <img src="assets/page-icons/twitter.png" class="navButtonIcon" align="left">Twitter
                             </div></a>
                         
-                            <a href="https://github.com/PINPAL">
+                            <a href="https://github.com/PINPAL" class="brandingSocial">
                                 <div class="navButton" style="background: linear-gradient(to right, #AA4DB4 , #8A3699)">
                                 <img src="assets/page-icons/github.png" class="navButtonIcon" align="left">Github
                             </div></a>
                 
-                            <a href="https://discordapp.com/invite/jb">
+                            <a href="https://discordapp.com/invite/jb" class="brandingSocial">
                                 <div class="navButton" style="background: linear-gradient(to right, #83A1DA , #6380B4)">
                                 <img src="assets/page-icons/discord.png" class="navButtonIcon" align="left">Discord
                             </div></a>
                 
-                            <a href="https://www.reddit.com/user/THE_PINPAL614">
+                            <a href="https://www.reddit.com/user/THE_PINPAL614" class="brandingSocial">
                                 <div class="navButton" style="background: linear-gradient(to right, #FF4C02 , #ED0A21)">
                                 <img src="assets/page-icons/reddit.png" class="navButtonIcon" align="left">Reddit
                             </div></a>

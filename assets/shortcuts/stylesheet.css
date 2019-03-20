@@ -195,7 +195,6 @@ a {
 	text-decoration: none;
 }
 
-/*Searchbox*/
 .navbarSearch, .popupTextField {
 	background: rgba(200, 200, 255, 0.2);
 	text-align: left;
@@ -208,7 +207,6 @@ a {
 	border-color: rgba(255, 255, 255, 0.05);
 	border-width: 2px;
 	vertical-align: middle;
-	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
 	box-sizing: border-box;
 	padding-top: 7px;
 	padding-bottom: 7px;
@@ -219,14 +217,19 @@ a {
 	display: inline-block;
 	overflow: hidden;
 	outline: none;
-  }
-	.navbarSearch:hover, .popupTextField:hover {
+}
+.navbarSearch:hover, .popupTextField:hover {
 	background: linear-gradient(to right, rgba(149,136,213,0.4) , rgba(171,89,147,0.4));
-  }
-	.navbarSearch:focus, .popupTextField:focus {
+}
+.navbarSearch:focus, .popupTextField:focus {
 	background: rgba(200, 200, 255, 0.35);
 	border-color: rgba(255, 255, 255, 0.15);
-  }
+}
+
+.popupTextField {
+	margin-top: 15px;
+	border-radius: 13px;
+}
   
 /*Wrapper*/
 .wrapper {
@@ -248,8 +251,7 @@ a {
 }
 
 p {
-	margin-bottom: 15px;
-	color: rgba(255,255,255,.6)
+	color: rgba(255,255,255,.6);
 }
 
 li {
@@ -258,6 +260,7 @@ li {
 
 h2 {
 	margin-top: 30px;
+	margin-bottom: 10px;
 }
 
 .popupWindow {
@@ -538,33 +541,64 @@ h2 {
 }
 
 .toggleSwitch {	
-	background: rgba(200, 200, 255, 0.05);
-	text-align: left;
-	border-radius: 25px;
+	border-radius: 38px;
 	color:white;
-	font-size: 20px;
-	border: none;
-	margin-right: 5px;
-	height: 100%;
-	max-height: 36px;
 	border-style: solid;
-	border-color: rgba(255, 255, 255, 0.05);
+	border-color: #c4c4c4;
 	border-width: 2px;
-	vertical-align: middle;
-	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
 	box-sizing: border-box;
-	width: 100%;
-	min-height: 40px;
-	max-height: 40px;
-	display: inline-block;
+	max-width: 65px;
+	min-width: 65px;
+	min-height: 38px;
+	max-height: 38px;
 	overflow: hidden;
-	outline: none;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 7px;
+	transition: all 0.25s ease;
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  -ms-transition: all 0.25s ease;
 }
-.toggleSwitchDisable, .toggleSwitchEnable {
-	color: rgba(255,255,255,.3);
-	border-radius: 25px;
-	padding: 5px;
-	max-height: 26px;
-	min-height: 26px;
-	width: 100%;
+.enabledToggle {
+	background: #6EDC5F;
+	border-color: rgba(255,255,255,0);
 }
+
+.toggleSwitchKnob {
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.45);
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	max-width: 30px;
+	min-width: 30px;
+	min-height: 30px;
+	max-height: 30px;
+	background-color: white;
+	border-radius: 50%;
+	transition: all 0.25s ease;
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  -ms-transition: all 0.25s ease;
+}
+.enabledToggle .toggleSwitchKnob {
+	left: 30px;
+}
+
+.prefsRow {
+	position: relative;
+	padding: 15px;
+	border-color: rgba(255,255,255,.05);
+	border-width: 3px;
+	border-bottom-style: solid;
+}
+.prefsRow h2, .prefsRow p {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+
+

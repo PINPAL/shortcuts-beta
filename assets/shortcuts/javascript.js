@@ -648,6 +648,16 @@ function applyCustomizationChanges() {
             document.getElementById("lightModeStylesheet").disabled = true
             document.getElementById("disableDarkMode").className = "toggleSwitch enabledToggle"
         }
+        //Disable Icons
+        if (customizedValues.includes("disableIcons")) {
+            document.getElementById("disableIconsStylesheet").disabled = false
+            document.getElementById("disableIcons").className = "toggleSwitch"
+        }
+        //Enable Icons
+        if (customizedValues.includes("disableIcons") == false) {
+            document.getElementById("disableIconsStylesheet").disabled = true
+            document.getElementById("disableIcons").className = "toggleSwitch enabledToggle"
+        }
         createCookie("customizedValues",customizedValues,999)
 }
 

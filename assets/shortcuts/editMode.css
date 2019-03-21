@@ -38,7 +38,7 @@
 .tableRow:hover {
     background-color: #b53d3d;
     background-image: url("delete.png") !important;
-    background-size: 32px;
+    background-size: 32px !important;
     background-position-x: 26px;
     cursor: pointer;
 }

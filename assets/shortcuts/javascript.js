@@ -19,7 +19,7 @@ var customizedValues = new Array()
 function loadConfig(showEditMode) {
     //Validate if custom customization settings exists and then load  from cookie
     var customizedValuesTemp = readCookie("customizedValues")
-    if (customizedValuesTemp.length > 0) {
+    if (customizedValuesTemp) {
         customizedValues = customizedValuesTemp
     } else {
         customizedValues = []

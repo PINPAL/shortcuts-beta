@@ -12,8 +12,12 @@ Available at: https://pinpal.github.io/shortcuts/
 * Make default text cursor position on page load be in google searchbox
 * Add feature to allow re-ordering of links
 * Fix "Start Fresh" from tutorial
-* Cleanup link URL of shortcuts to remove sub pages from link preview
 * Finish "Customization" menu
 * Add animations to going in/out of edit mode
 * Add animations for pop-ups
-* Fix "Cancel Changes" - it reverts changes made that were 'saved' 
+* Fix "Cancel Changes" - it reverts changes made that were 'saved'
+
+#### Known Issues
+
+* [ ] There is a hard limit on the number of possible links (unknown cause)
+* [ ] Validation that custom customization settings exist on page load (to resolve errors that could not do something of "null")

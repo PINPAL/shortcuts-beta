@@ -13,13 +13,16 @@ function cleanupURL(url) {
 }
 
 //Define global variable to allow being passed between functions
-var customizedValues = []
+var customizedValues = new Array()
 
 //Function to render
 function loadConfig(showEditMode) {
     //Validate if custom customization settings exists and then load  from cookie
-    if (document.cookie.indexOf("customizedValues=") >= 0) {
-        customizedValues = readCookie("customizedValues")
+    var customizedValuesTemp = readCookie("customizedValues")
+    if (customizedValuesTemp.length > 0) {
+        customizedValues = customizedValuesTemp
+    } else {
+        customizedValues = []
     }
     applyCustomizationChanges()
     //Load config from cookie

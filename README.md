@@ -16,6 +16,7 @@ Available at: https://pinpal.github.io/shortcuts-beta/
 * Add animations to going in/out of edit mode
 * Add animations for pop-ups
 * Fix "Cancel Changes" - it reverts changes made that were 'saved'
+* Reformat as OOP with JSON config storage
 
 #### Known Issues
 

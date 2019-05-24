@@ -3,7 +3,7 @@
 
 #### Description
 This is a customizable browser homepage. You can add shortcuts, categories and also use the easy to access google searchbar at the top.
-Available at: https://pinpal.github.io/shortcuts/
+Available at: https://pinpal.github.io/shortcuts-beta/
 
 #### Progress
 ![Progress](http://progressed.io/bar/65) Usable as homepage however missing key features.

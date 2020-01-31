@@ -497,7 +497,7 @@ function addCategory(columnNumber) {
 
 //Hide popup when clicking on background ONLY (prevent propagation of onClick)
 document.getElementsByClassName("popupWrapper")[0].addEventListener("click", function (e) {
-    if (window.innerWidth > 720) { //Prevent closing of resolution error popup
+    if ((window.innerWidth > 720) && (document.cookie)) { //Prevent closing of resolution error popup
         e = window.event || e;
         if (this === e.target) {
             displayPopup(false,"")
@@ -576,6 +576,13 @@ function importConfig() {
         loadConfig(true)
         displayPopup(false,"")
    })
+}
+//Import Example Config
+function importExampleConfig() {
+    var config = "#Example[0]•PINPAL•https://pinpal.github.io/•https://pinpal.github.io/assets/pinpal.png"
+    createCookie("config",config,999)
+    loadConfig(true)
+    displayPopup(false,"")
 }
 
 //Function to write cookies

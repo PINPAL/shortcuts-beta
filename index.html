@@ -120,12 +120,11 @@
                 </div>
             <!--</div>    for dual column     --> 
             <div class="popupWindow" id="tutorial">
-                <div class="popupCloseButton" onClick="displayPopup(false,'')"></div>
                 <h1 style="font-size: 26pt;">Welcome</h1>
                 <h2>Looks like you're new here!</h2>
                 <p>I've detected you don't have a config for the site, this means you are either new around here or your browser cookies were deleted.
                 </br></br>I recommend that you load the example config and customise from there to get a feel for the site, but you can always start fresh if your feeling advanced.</p>
-                <button class="button" onlick="alert('Sorry this feature is not added yet!')">Load Example Config</button>
+                <button class="button" onclick="importExampleConfig()">Load Example Config</button>
                 <h2>What! I'm not new!</h2>
                 <p>If you have used this site before and have lost your browser cookie, have no fear! You can load your backup using the button below.</p>
                 <button class="button" onclick="importConfig()">Load Backed Up Config</button>
